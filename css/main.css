@@ -51,6 +51,16 @@ h3 {
 	margin-bottom: 50px;
 }
 
+p:first-child:first-letter {
+  color: #980000;
+  font-family: 'Vollkorn', serif;
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+}
+
 /* -------------- */
 
 .article-copyright {
