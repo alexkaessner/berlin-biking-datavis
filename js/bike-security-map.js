@@ -87,8 +87,9 @@ function handleStepEnter(response) {
 	})
 
 	// update graphic based on step
-	// chart.select('p').text(response.index + 1)
-	//map.flyTo([52.413818, 13.050539], response.index * 5);
+	if (response.index == 1) {
+		securityMap.flyTo([52.413818, 13.050539], 15);
+	}
 }
 
 function handleContainerEnter(response) {
@@ -118,8 +119,7 @@ function init() {
 		container: '#bike-security-container',
 		graphic: '.scroll__graphic',
 		text: '.scroll__text',
-		step: '.scroll__text .step',
-		debug: true,
+		step: '.scroll__text .step'
 	})
 		.onStepEnter(handleStepEnter)
 		.onContainerEnter(handleContainerEnter)
