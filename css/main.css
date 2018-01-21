@@ -67,16 +67,16 @@ p:first-child:first-letter {
 	margin: 40px 0px;
 }
 
+#bike-paths-map, #bike-security-map {
+  height: 100%;
+}
+
 /* -------------- */
 
 .bike-paths-container {
 	position: relative;
 	display: block;
 	height: 600px;
-}
-
-#bike-paths-map {
-  height: 100%;
 }
 
 #controls {
@@ -134,4 +134,77 @@ p:first-child:first-letter {
   background: white;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+}
+
+/* -------------- */
+
+#bike-security-container {
+	position: relative;
+	display: block;
+	background-color: #262522;
+}
+
+.scroll__graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: auto;
+	width: 80%;
+	height: 100%;
+}
+
+.scroll__graphic.is-fixed {
+	position: fixed;
+}
+
+.scroll__graphic.is-bottom {
+	bottom: 0;
+	top: auto;
+}
+
+.chart {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	background-color: #ddd;
+	border: 1px solid #000;
+}
+
+.chart p {
+	text-align: center;
+	padding: 1rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-size: 8rem;
+	font-weight: 900;
+	color: #666;
+}
+
+.scroll__text {
+	position: relative;
+	padding: 0 1rem;
+	max-width: 30rem;
+	width: 33%;
+}
+
+.step {
+	margin: 2rem auto;
+	border: 1px solid #333;
+}
+
+.step.is-active {
+	background-color: lightgoldenrodyellow;
+}
+
+.step p {
+	text-align: center;
+	padding: 1rem;
+	font-size: 1.5rem;
 }

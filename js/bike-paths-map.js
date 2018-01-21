@@ -1,3 +1,5 @@
+// CARTO MAP LOADING
+
 var map = L.map('bike-paths-map').setView([52.520008, 13.404954], 13);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
