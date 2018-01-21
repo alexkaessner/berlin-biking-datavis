@@ -67,8 +67,71 @@ p:first-child:first-letter {
 	margin: 40px 0px;
 }
 
+/* -------------- */
+
+.bike-paths-container {
+	position: relative;
+	display: block;
+	height: 600px;
+}
+
 #bike-paths-map {
-  height: 600px;
-  padding: 0;
-  margin: 0;
+  height: 100%;
+}
+
+#controls {
+	position: absolute;
+  padding: 20px;
+  background: white;
+  top: 16px;
+  right: 16px;
+	width: 250px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  z-index: 1000;
+}
+
+#controls ul {
+	margin: 0;
+	padding: 0;
+}
+
+#controls li {
+  list-style-type: none;
+  margin: 0 0 8px 0;
+}
+
+#controls li input {
+  margin: 0 5px 0 0;
+}
+
+#controls li label {
+  font-size: 16px;
+  cursor: pointer;
+	margin-bottom: 0;
+}
+
+#controls li:last-child {
+  margin-bottom: 0;
+}
+
+#controls li:hover {
+  cursor: pointer;
+}
+
+/* pop-ups */
+/* to create pop-up information windows and interact with your map */
+#pop-up {
+  position: absolute;
+  top: 220px;
+  right: 16px;
+  width: 250px;
+  z-index: 1000;
+}
+
+.wrapper {
+  padding: 16px;
+  background: white;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
 }
