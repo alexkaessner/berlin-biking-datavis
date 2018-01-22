@@ -1,23 +1,23 @@
 // CARTO MAP LOADING
 
-var map = L.map('bike-paths-map').setView([52.520008, 13.404954], 13);
+var bikePathsMap = L.map('bike-paths-map').setView([52.520008, 13.404954], 13);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
   maxZoom: 18
-}).addTo(map);
+}).addTo(bikePathsMap);
 
-const client = new carto.Client({
+const bikePathsMapClient = new carto.Client({
   apiKey: config.CARTO_API_KEY,
   username: config.CARTO_USERNAME
 });
 
-const source = new carto.source.SQL(`
+const bikePathsMapSource = new carto.source.SQL(`
   SELECT *
     FROM berlin_radverkehrsanlagen_2
 `);
 
 
-const style = new carto.style.CartoCSS(`
+const bikePathsMapStyle = new carto.style.CartoCSS(`
   #layer {
     line-width: 2.5;
     line-color: ramp([rva_typ], ("#ef255f", "#1d6996", "#38a6a5", "#ffd460", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen",  ), '=');
@@ -26,7 +26,7 @@ const style = new carto.style.CartoCSS(`
 
 //const layer = new carto.layer.Layer(source, style);
 
-const layer = new carto.layer.Layer(source, style, {
+const bikePathsMapLayer = new carto.layer.Layer(bikePathsMapSource, bikePathsMapStyle, {
   featureOverColumns: ['rva_typ', 'stst_str']
 });
 
@@ -36,17 +36,17 @@ featureOverColumns: ['name', 'pop_max', 'pop_min']
 });
 */
 
-client.addLayer(layer);
-client.getLeafletLayer().addTo(map);
+bikePathsMapClient.addLayer(bikePathsMapLayer);
+bikePathsMapClient.getLeafletLayer().addTo(bikePathsMap);
 
 function setAll() {
-  source.setQuery(`
+  bikePathsMapSource.setQuery(`
       SELECT * FROM berlin_radverkehrsanlagen_2
   `);
 }
 
 function setRadwege() {
-  source.setQuery(`
+  bikePathsMapSource.setQuery(`
     SELECT *
       FROM berlin_radverkehrsanlagen_2
       WHERE rva_typ = \'Radwege\'
@@ -54,7 +54,7 @@ function setRadwege() {
 }
 
 function setSchutzstreifen() {
-  source.setQuery(`
+  bikePathsMapSource.setQuery(`
     SELECT *
       FROM berlin_radverkehrsanlagen_2
       WHERE rva_typ = \'Schutzstreifen\'
@@ -62,7 +62,7 @@ function setSchutzstreifen() {
 }
 
 function setRadfahrstreifen() {
-  source.setQuery(`
+  bikePathsMapSource.setQuery(`
     SELECT *
       FROM berlin_radverkehrsanlagen_2
       WHERE rva_typ = \'Radfahrstreifen\'
@@ -70,7 +70,7 @@ function setRadfahrstreifen() {
 }
 
 function setBussonderfahrstreifen() {
-  source.setQuery(`
+  bikePathsMapSource.setQuery(`
     SELECT *
       FROM berlin_radverkehrsanlagen_2
       WHERE rva_typ = \'Bussonderfahrstreifen\'
@@ -101,12 +101,12 @@ function openPopup(featureEvent) {
     }
     content += `</div>`;
     popup.setContent(content);
-    popup.openOn(map);
+    popup.openOn(bikePathsMap);
   }
 }
 
 function closePopup(featureEvent) {
-  popup.removeFrom(map);
+  popup.removeFrom(bikePathsMap);
 }
 
 function setPopupsClick() {
@@ -122,7 +122,7 @@ function setPopupsHover() {
 }
 
 
-layer.on('featureOver', featureEvent => {
+bikePathsMapLayer.on('featureOver', featureEvent => {
   let content = '';
   content += `<div class="wrapper">`;
   content += `<h4>${featureEvent.data.rva_typ.toUpperCase()}</h4>`;
@@ -131,6 +131,6 @@ layer.on('featureOver', featureEvent => {
   document.getElementById('content').innerHTML = content;
 });
 
-layer.on('featureOut', featureEvent => {
+bikePathsMapLayer.on('featureOut', featureEvent => {
   document.getElementById('content').innerHTML = '';
 });
