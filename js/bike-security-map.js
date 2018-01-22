@@ -23,15 +23,6 @@ function handleResize() {
 		.style('width', bodyWidth + 'px')
 		.style('height', window.innerHeight + 'px');
 
-	var chartMargin = 32;
-	var textWidth = text.node().offsetWidth;
-	var chartWidth = graphic.node().offsetWidth - textWidth - chartMargin;
-
-	chart
-		.style('width', chartWidth + 'px')
-		.style('height', Math.floor(window.innerHeight / 2) + 'px');
-
-
 	// 3. tell scrollama to update new element dimensions
 	scroller.resize();
 }
@@ -105,7 +96,9 @@ init();
 
 // CARTO MAP LOADING
 
-var securityMap = L.map('bike-security-map').setView([52.520008, 13.404954], 13);
+var securityMap = L.map('bike-security-map', {
+  zoomControl: false
+}).setView([52.520008, 13.404954], 13);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
   maxZoom: 18
