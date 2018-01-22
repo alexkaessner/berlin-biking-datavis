@@ -1,44 +1,3 @@
-// CARTO MAP LOADING
-
-var securityMap = L.map('bike-security-map').setView([52.520008, 13.404954], 13);
-
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
-  maxZoom: 18
-}).addTo(securityMap);
-
-const securityMapClient = new carto.Client({
-  apiKey: config.CARTO_API_KEY,
-  username: config.CARTO_USERNAME
-});
-
-const securityMapSource = new carto.source.SQL(`
-  SELECT *
-    FROM berlin_bike_accident_spots_2016_1
-`);
-
-
-const securityMapStyle = new carto.style.CartoCSS(`
-	#layer {
-	  marker-width: ramp([count], range(5, 20), quantiles(5));
-	  marker-fill: #ff0900;
-	  marker-fill-opacity: 1;
-	  marker-allow-overlap: true;
-	  marker-line-width: 0;
-	  marker-line-color: #FFFFFF;
-	  marker-line-opacity: 1;
-	}
-`);
-
-const securityMapLayer = new carto.layer.Layer(securityMapSource, securityMapStyle, {
-  featureOverColumns: ['count']
-});
-
-securityMapClient.addLayer(securityMapLayer);
-securityMapClient.getLeafletLayer().addTo(securityMap);
-
-
-// -----------------------------------------------------------------------------
-
 // SCROLLYTELLING
 
 // using d3 for convenience
@@ -87,8 +46,18 @@ function handleStepEnter(response) {
 	})
 
 	// update graphic based on step
-	if (response.index == 1) {
-		securityMap.flyTo([52.413818, 13.050539], 15);
+	if (response.index == 0) {
+    // reset to initial position
+		securityMap.flyTo([52.520008, 13.404954], 13);
+	}
+  if (response.index == 1) {
+		securityMap.flyTo([52.549479, 13.413720], 16);
+	}
+  if (response.index == 2) {
+		securityMap.flyTo([52.516369, 13.380871], 16);
+	}
+  if (response.index == 3) {
+		securityMap.flyTo([52.528292, 13.409065], 16);
 	}
 }
 
@@ -131,3 +100,44 @@ function init() {
 
 // kick things off
 init();
+
+// -----------------------------------------------------------------------------
+
+// CARTO MAP LOADING
+
+var securityMap = L.map('bike-security-map').setView([52.520008, 13.404954], 13);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+  maxZoom: 18
+}).addTo(securityMap);
+
+const securityMapClient = new carto.Client({
+  apiKey: config.CARTO_API_KEY,
+  username: config.CARTO_USERNAME
+});
+
+const securityMapSource = new carto.source.SQL(`
+  SELECT *
+    FROM berlin_bike_accident_spots_2016_1
+`);
+
+
+const securityMapStyle = new carto.style.CartoCSS(`
+	#layer {
+	  marker-width: ramp([count], range(5, 20), quantiles(5));
+	  marker-fill: #ff0900;
+	  marker-fill-opacity: 1;
+	  marker-allow-overlap: true;
+	  marker-line-width: 0;
+	  marker-line-color: #FFFFFF;
+	  marker-line-opacity: 1;
+	}
+`);
+
+const securityMapLayer = new carto.layer.Layer(securityMapSource, securityMapStyle, {
+  featureOverColumns: ['count']
+});
+
+// load maps at last!
+securityMapClient.addLayer(securityMapLayer);
+securityMapClient.getLeafletLayer().addTo(securityMap);
