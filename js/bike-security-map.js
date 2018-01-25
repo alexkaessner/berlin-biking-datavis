@@ -97,8 +97,15 @@ init();
 // CARTO MAP LOADING
 
 var securityMap = L.map('bike-security-map', {
-  zoomControl: false
-}).setView([52.520008, 13.404954], 13);
+	center: [52.520008, 13.404954],
+	zoom: 13,
+	scrollWheelZoom: false,
+	zoomControl: false
+});
+
+L.control.zoom({
+	position: 'topright'
+}).addTo(securityMap);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
   maxZoom: 18

@@ -1,6 +1,10 @@
 // CARTO MAP LOADING
 
-var bikePathsMap = L.map('bike-paths-map').setView([52.520008, 13.404954], 13);
+var bikePathsMap = L.map('bike-paths-map', {
+  center: [52.520008, 13.404954],
+  zoom: 13,
+  scrollWheelZoom: false
+});
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
   maxZoom: 18
