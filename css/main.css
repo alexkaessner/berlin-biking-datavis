@@ -167,6 +167,16 @@ p:first-child:first-letter {
 	padding: 0 30px;
 }
 
+#morgenpost-chart .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+#morgenpost-chart .area {
+  fill: lightsteelblue;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++ SECURITY SCROLLYTELLING ++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
