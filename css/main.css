@@ -177,6 +177,10 @@ p:first-child:first-letter {
 	background-color: #262522;
 }
 
+#bike-security-container .row {
+	margin-right: 0;
+}
+
 .gradient-map-overlay {
 	position: absolute;
 	left: 0;
