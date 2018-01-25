@@ -1,20 +1,23 @@
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 670 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    height = 200 - margin.top - margin.bottom;
 
 // set the ranges
-var x = d3.scaleBand().range([0, width]);
+var x = d3.scaleBand().range([0, width])
+				.padding(0);
 var y = d3.scaleLinear().range([height, 0]);
 
 // define the area
 var area = d3.area()
+		.curve(d3.curveNatural)
     .x(function(d) { return x(d.safetylevel); })
     .y0(height)
     .y1(function(d) { return y(d.votes); });
 
 // define the line
 var valueline = d3.line()
+		.curve(d3.curveNatural)
     .x(function(d) { return x(d.safetylevel); })
     .y(function(d) { return y(d.votes); });
 
@@ -31,6 +34,24 @@ var svg = d3.select("#morgenpost-chart").append("svg")
 d3.csv("../data/morgenpost-chart.csv", function(error, data) {
   if (error) throw error;
 
+	// create the gradient for the chart
+	svg.append("linearGradient")
+	    .attr("id", "morgenpost-gradient")
+	    .attr("gradientUnits", "userSpaceOnUse")
+	    .attr("x1", 0).attr("y1", 0)
+	    .attr("x2", 620).attr("y2", 0)
+	  .selectAll("stop")
+	    .data([
+	      {offset: "0%", color: "#0ABFBC"},
+				{offset: "30%", color: "#0ABFBC"},
+	      {offset: "50%", color: "#5E76DC"},
+				{offset: "70%", color: "#FC354C"},
+	      {offset: "100%", color: "#FC354C"}
+	    ])
+	  .enter().append("stop")
+	    .attr("offset", function(d) { return d.offset; })
+	    .attr("stop-color", function(d) { return d.color; });
+
   // format the data
   data.forEach(function(d) {
       d.votes = +d.votes;
@@ -45,20 +66,5 @@ d3.csv("../data/morgenpost-chart.csv", function(error, data) {
        .data([data])
        .attr("class", "area")
        .attr("d", area);
-
-  // add the valueline path.
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline);
-
-  // add the X Axis
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-  // add the Y Axis
-  svg.append("g")
-      .call(d3.axisLeft(y));
 
 });
