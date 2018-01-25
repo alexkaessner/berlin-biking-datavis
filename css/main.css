@@ -75,7 +75,7 @@ h5 {
 	margin-bottom: 80px;
 }
 
-p:first-child:first-letter {
+.drop-cap:first-letter {
   color: #980000;
   font-family: 'Vollkorn', serif;
   float: left;
