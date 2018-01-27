@@ -1,5 +1,5 @@
 type,slightly_injured,seriously_injured,dead
-passenger_car,55,6,0
+car,55,6,0
 motorcycle,50,4,0
 truck,9,0,0
 other,14,0,0
