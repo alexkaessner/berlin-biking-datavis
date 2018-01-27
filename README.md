@@ -10,3 +10,4 @@ This project requires a local server to load the data. This can be done with Ter
 
 # Data Sources
 - survey by _Berliner Morgenpost_: https://www.morgenpost.de/berlin/article212826341/Vorfahrt-fuer-Radfahrer-in-Berlin.html (last updated: 25.01.18 3:52pm)
+- accident damage chart: Sonderuntersuchung Radfahrerverkehrsunfälle in Berlin, 2016, Der Polizeipräsident in Berlin
