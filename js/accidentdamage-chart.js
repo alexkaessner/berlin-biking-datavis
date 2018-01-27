@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var AD_margin = {top: 0, right: 10, bottom: 20, left: 60},
+var AD_margin = {top: 0, right: 10, bottom: 20, left: 52},
     AD_width = 670 - AD_margin.left - AD_margin.right,
     AD_height = 300 - AD_margin.top - AD_margin.bottom;
 
@@ -48,11 +48,19 @@ d3.csv("../data/accidentdamage-chart.csv", function(d, i, columns) {
       .attr("height", AD_y.bandwidth());
 
 	AD_svg.append("g")
-      .attr("class", "axis")
-      .attr("transform", "translate(0," + AD_height + ")")
-      .call(d3.axisBottom(AD_x).ticks(null, "s"));
+      .attr("class", "x-axis")
+      .call(d3.axisBottom(AD_x)
+						.ticks(null, "s")
+						.tickSize(AD_height)
+					)
+			.select(".domain").remove();
+	AD_svg.selectAll(".tick").attr("opacity", "0.5");
+	AD_svg.selectAll(".tick:not(:first-of-type) line").attr("stroke-dasharray", "2,2");
 
   AD_svg.append("g")
-      .attr("class", "axis")
-      .call(d3.axisLeft(AD_y));
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(AD_y)
+						.tickSize(0)
+					)
+		.select(".domain").remove();
 });
