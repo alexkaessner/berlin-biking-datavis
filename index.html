@@ -18,6 +18,18 @@
 	  <!-- Include CARTO.js -->
 	  <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta.10/carto.min.js"></script>
 
+		<!--Dount Chart -->
+		<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+		<!-- Chart.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+
+
 		<script type='text/javascript' src='js/config.js'></script>
 		<link rel="stylesheet" href="css/main.css">
 	</head>
@@ -83,7 +95,11 @@
 			</div>
 
 			<div class="container">
-				<!-- Diagramm here -->
+				<div id="piechart"></div>
+						<div id="centerTooltip"></div>
+						<div id="mainTooltip" class="hidden">
+  						<p><span id="value"></span></p>
+					</div>
 			</div>
 
 			<!-- ++++++++++++++++++++++++++++++ MAP ++++++++++++++++++++++++++++++ -->
@@ -226,5 +242,6 @@
 		<script src="js/bike-security-map.js"></script>
 		<script src="js/morgenpost-chart.js"></script>
 		<script src="js/accidentdamage-chart.js"></script>
+		<script src="js/dountchart.js"></script>
 	</body>
 </html>

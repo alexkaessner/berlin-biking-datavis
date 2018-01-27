@@ -13,11 +13,9 @@ var data = [
     },
     {
         "str_lab": "D",
-        "num": 10
+        "num": 385
     }
 ];
-
-
 var width = 300,
     height = 300,
     radius = Math.min(width, height) / 2;
@@ -25,7 +23,7 @@ var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
 
 var color = d3.scale.ordinal()
-    .range(["red","blue","yellow", "black"]);
+    .range(["red","#53856D","#FF7043", ""]);
 
 var arc = d3.svg.arc()
     .padRadius(outerRadius)
@@ -40,7 +38,7 @@ var pie = d3.layout.pie()
     .padAngle(0.03)
     .value(function(d) { return d.num; });
 
-d3.select("#chart").append("div")
+d3.select("#piechart").append("div")
     .attr("id","mainPie")
     .attr("class","pieBox");
 
