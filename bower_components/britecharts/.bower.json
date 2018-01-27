@@ -1,0 +1,31 @@
+{
+  "name": "britecharts",
+  "description": "D3.js based Modular Charting Library by Eventbrite",
+  "main": "README.md",
+  "authors": [
+    "Eventbrite"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "d3",
+    "chart",
+    "library",
+    "graph",
+    "reusable",
+    "es6",
+    "es2015",
+    "visualization"
+  ],
+  "homepage": "http://eventbrite.github.io/britecharts/",
+  "version": "2.4.11",
+  "_release": "2.4.11",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.4.11",
+    "commit": "16fb70461f68572523280f1cc82d9b41984ca31d"
+  },
+  "_source": "https://github.com/eventbrite/britecharts.git",
+  "_target": "^2.4.11",
+  "_originalSource": "britecharts",
+  "_direct": true
+}
