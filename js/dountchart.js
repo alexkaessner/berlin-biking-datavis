@@ -13,22 +13,27 @@ var data = [
     },
     {
         "str_lab": "D",
-        "num": 385
+        "num": 10
     }
 ];
-var width = 500,
-    height = 500,
+
+
+var width = 300,
+    height = 300,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
 
 var color = d3.scale.ordinal()
-    .range(["#5FB47E","#3F678B","#F9E755", "#3E0A51"]);
+    .range(["red","blue","yellow", "black"]);
 
 var arc = d3.svg.arc()
     .padRadius(outerRadius)
     .innerRadius(radius * 0.5);
 
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 var pie = d3.layout.pie()
     .sort(null)
@@ -44,7 +49,6 @@ var svg = d3.select("#mainPie").append("svg")
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
 
 var defs = svg.append("defs");
 var filter = defs.append("filter")
@@ -69,6 +73,18 @@ feMerge.append("feMergeNode")
     .attr("in", "offsetBlur")
 feMerge.append("feMergeNode")
     .attr("in", "SourceGraphic");
+
+
+//Number 4
+var centerSvg = svg.append('circle')
+  .attr('fill','#42A5F5')
+  .attr("class","centerCircle")
+  .style("opacity", .5)
+  .attr('r','62');
+
+// Define the div for the tooltip
+var tooltipCenter = d3.selectAll("#centerTooltip").append("span")
+    .style("opacity", 0);
 
 var g = svg.selectAll(".arc")
       .data(pie(data))
@@ -115,6 +131,11 @@ var g = svg.selectAll(".arc")
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
+
+            tooltipCenter.transition()
+                .duration(0)
+                .style("opacity", .9);
+            tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
         })
 
       .on("mouseout", function(d){
@@ -146,8 +167,3 @@ var g = svg.selectAll(".arc")
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
       })
-
-      //Number 4
-      var centerSvg = svg.append('circle')
-        .attr('fill','#42A5F5')
-        .attr('r','62');

@@ -165,6 +165,69 @@ h5 {
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++++++++++++ Bike path types chart ++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+  #chart{
+  text-align: center;
+  padding-top: 50px;
+}
+.arc text {
+
+  text-anchor: middle;
+  font-size: 16px;
+
+}
+
+.pieBox{
+    display: inline-block;
+    height: auto;
+}
+
+#centerTooltip {
+  margin-left:395px;
+  margin-top:-175px;
+  text-anchor: middle;
+}
+
+#mainTooltip {
+  font-size: 16px;
+  font-family: "Fira Sans";
+font-style: line-height;
+
+    position: absolute;
+    width :297px;
+    height: auto;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    /*padding: 0 25px 25px 25px;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(0,0,0,0.9);
+    pointer-events: none;
+    color: #fff;
+    text-anchor: middle;
+    text-align: left;
+
+    z-index: 9999;
+}
+#mainTooltip:before {
+    top: 100%;
+    content: "";
+    left: 20%;
+    position: absolute;
+    z-index: 99;
+}
+#mainTooltip.hidden {
+    display: none;
+}
+
+
+
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
