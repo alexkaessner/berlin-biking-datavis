@@ -1,6 +1,5 @@
-var ctx = document.getElementById("lineChart").getContext('2d');
-ctx.height = 100;
-ctx.width = 100;
+var ctx = document.getElementById("bike-theft-diagram").getContext('2d');
+
 var lineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -8,11 +7,11 @@ var lineChart = new Chart(ctx, {
     datasets: [{
       label: 'aufgeklärte Fälle',
       data: [43921, 42476, 44642, 46797, 50207, 47815, 48041, 46956, 50510, 51391],
-      backgroundColor: "rgba(63,103,139,0.8)"
+      backgroundColor: "rgba(63,103,139,0.8)",
     }, {
       label: 'erfasste Fälle',
       data: [186881, 182372, 184914, 190437, 213012, 213012, 226279, 242899, 267123, 270880],
-      backgroundColor: "rgba(152,0,0,0.8)"
+      backgroundColor: "rgba(152,0,0,0.8)",
     }]
   },
 
@@ -37,14 +36,13 @@ var lineChart = new Chart(ctx, {
         },
 				layout: {
 	 				padding: {
-		 				top: 100,
-						right: 100
+		 				top: 10
 	 				}
  				},
 
 				responsive: true,
  					legend: {
-	 					position: 'right',
+	 					position: 'center',
  					}
 				},
 
