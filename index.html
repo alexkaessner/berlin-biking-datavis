@@ -18,16 +18,23 @@
 	  <!-- Include CARTO.js -->
 	  <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta.10/carto.min.js"></script>
 
-		<!--Dount Chart -->
+		<!-- dount-chart -->
 		<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-		<!-- Chart.js -->
+		<!--- Chart.js --->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-		<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+		<link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
+
+
+
+
+		<!-- line chart -->
+		<link rel="stylesheet"
+				 href="bower_components/chartist/dist/chartist.min.css">
 
 
 
@@ -38,7 +45,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="container">
-				<h1>Test Bicycling in Berlin</h1>
+				<h1>Bicycling in Berlin</h1>
 				<h3>something between fear and hope</h3>
 				<div class="article-copyright text-center">
 					By Alexander Käßner, Jolanta Paliszewska, Caroline Zygmunt.<br />
@@ -54,7 +61,7 @@
 
 			<div class="container">
 				<p class="drop-cap">
-					Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.
+					Test Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.
 				</p>
 				<p>
 					Maecenas sed diam eget risus varius blandit sit amet non magna. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
@@ -95,12 +102,14 @@
 			  </div>
 			</div>
 
+			<!-- ++++++++++++++++++++++++++++++ Diagram Donutchart ++++++++++++++++++++++++++++++ -->
+
 			<div class="container">
-				<div id="piechart"></div>
-						<div id="centerTooltip"></div>
-						<div id="mainTooltip" class="hidden">
-  						<p><span id="value"></span></p>
-					</div>
+				<div id="chart"></div>
+					<div id="centerTooltip"></div>
+					<div id="mainTooltip" class="hidden">
+				  	<p><span id="value"></span></p>
+				</div>
 			</div>
 
 			<!-- ++++++++++++++++++++++++++++++ MAP ++++++++++++++++++++++++++++++ -->
@@ -229,12 +238,40 @@
 				</p>
 			</div>
 		</div>
+		<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		<!-- ++++++++++++++++++++++++ bicycle theft diagram ++++++++++++++++++ -->
+		<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-
-		<!-- accident damage chart -->
+		<!-- bike-theft-chart -->
 		<div class="container">
-			<div id="biketheft-chart"></div>
+			<!--<div id="bike-theft-chart"></div> -->
+			<h2>Sicherheit beim Parken?</h2>
+			<p>
+				Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.
+			</p>
+			<p>
+				Maecenas sed diam eget risus varius blandit sit amet non magna. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+			</p>
+
+			<h1> Diagramme Fahrraddiebstaehle </h1>
+			<canvas id="myChart" width="400" height="400"></canvas>
+
+
 		</div>
+
+		<!-- bike-theft-chart -->
+		<div class="container">
+			<!--<div id="bike-theft-chart"></div> -->
+			<h2>Sicherheit beim Parken?</h2>
+			<p>
+				Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.
+			</p>
+			<p>
+				Maecenas sed diam eget risus varius blandit sit amet non magna. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+			</p>
+
+		</div>
+
 
 
 		<!-- ++++++++++++++++++++++++++++ JAVASCRIPT +++++++++++++++++++++++++++ -->
@@ -251,7 +288,8 @@
 		<script src="js/morgenpost-chart.js"></script>
 		<script src="js/accidentdamage-chart.js"></script>
 		<script src="js/dountchart.js"></script>
-		<script src="js/biketheft-chart.js"></script>
+		<script src="js/bike-theft-chart.js"></script>
+			<script src="bower_components/chartist/dist/chartist.min.js"></script>
 
 	</body>
 </html>

@@ -71,28 +71,35 @@ font-style: line-height;
 </div>
 
 <script>
+
 var data = [
     {
         "str_lab": "Radwege",
         "num": 100,
-        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit."
+        "info": "ALorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+        "image": "graphics/bikepath-types/schutzstreifen.svg"
     },
     {
         "str_lab": "Radfahrstreifen",
         "num": 44,
-        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit."
+        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+        "image": "graphics/bikepath-types/schutzstreifen.svg"
     },
     {
         "str_lab": "Schutzstreifen",
         "num": 215,
-        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit."
+        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+        "image": "graphics/bikepath-types/schutzstreifen.svg"
     },
     {
         "str_lab": "Bussonderfahrstreifen",
         "num": 385,
-        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit."
+        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+        "image": "graphics/bikepath-types/schutzstreifen.svg"
+
     }
 ];
+
 var width = 300,
     height = 300,
     radius = Math.min(width, height) / 2;
@@ -184,7 +191,7 @@ var g = svg.selectAll(".arc")
               .style("top", mousePos[1] + 30 + "px")
               .select("#value33")
               .attr("text-anchor", "middle")
-              .html( d.data.info);
+              .html( d.data.info + "<br />" + d.data.image);
             //.html(d.data.str_lab + "<br />" + d.data.num + "<br />" + d.data.info");
 
           d3.select("#mainTooltip").classed("hidden", false);

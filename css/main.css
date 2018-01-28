@@ -170,10 +170,9 @@ h5 {
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 
-#piechart{
-text-align: center;
-padding-top: 50px;
-padding-bottom: 150px;
+  #chart{
+  text-align: center;
+  padding-top: 50px;
 }
 .arc text {
 

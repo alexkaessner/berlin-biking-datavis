@@ -13,9 +13,11 @@ var data = [
     },
     {
         "str_lab": "D",
-        "num": 385
+        "num": 10
     }
 ];
+
+
 var width = 300,
     height = 300,
     radius = Math.min(width, height) / 2;
@@ -23,7 +25,7 @@ var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
 
 var color = d3.scale.ordinal()
-    .range(["red","#53856D","#FF7043", ""]);
+    .range(["red","blue","yellow", "black"]);
 
 var arc = d3.svg.arc()
     .padRadius(outerRadius)
@@ -38,7 +40,7 @@ var pie = d3.layout.pie()
     .padAngle(0.03)
     .value(function(d) { return d.num; });
 
-d3.select("#piechart").append("div")
+d3.select("#chart").append("div")
     .attr("id","mainPie")
     .attr("class","pieBox");
 
@@ -153,13 +155,13 @@ var g = svg.selectAll(".arc")
         });
       })
 
-      .on("mousemove", function() {
+      .on("click", function() {
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
       })
-      .on("mouseout", function() {
+      .on("dblclick", function() {
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           var i = d3.interpolate(d.outerRadius, outerRadius  - 10);
           return function(t) { d.outerRadius = i(t); return arc(d); };
