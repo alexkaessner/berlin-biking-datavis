@@ -13,7 +13,7 @@ var scroller = scrollama();
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepHeight = Math.floor(window.innerHeight * 0.75);
+	var stepHeight = Math.floor(window.innerHeight * 1);
 	step.style('height', stepHeight + 'px');
 
 	// 2. update width/height of graphic element
@@ -39,16 +39,25 @@ function handleStepEnter(response) {
 	// update graphic based on step
 	if (response.index == 0) {
     // reset to initial position
-		securityMap.flyTo([52.520008, 13.404954], 13);
+		securityMap.flyTo([52.516369, 13.380871], 12);
 	}
   if (response.index == 1) {
-		securityMap.flyTo([52.549479, 13.413720], 16);
+		securityMap.flyTo([52.516369, 13.380871], 12);
 	}
   if (response.index == 2) {
-		securityMap.flyTo([52.516369, 13.380871], 16);
+		securityMap.flyTo([52.549479, 13.413720], 16);
 	}
   if (response.index == 3) {
+		securityMap.flyTo([52.516369, 13.380871], 16);
+	}
+  if (response.index == 4) {
 		securityMap.flyTo([52.528292, 13.409065], 16);
+	}
+	if (response.index == 5) {
+		securityMap.flyTo([52.487090, 13.424768], 16);
+	}
+	if (response.index == 6) {
+		securityMap.flyTo([52.509486, 13.376373], 16);
 	}
 }
 
@@ -104,7 +113,7 @@ var securityMap = L.map('bike-security-map', {
 });
 
 L.control.zoom({
-	position: 'topright'
+	position: 'bottomright'
 }).addTo(securityMap);
 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
@@ -129,8 +138,8 @@ const securityMapSource2 = new carto.source.SQL(`
 const securityMapStyle0 = new carto.style.CartoCSS(`
 	#layer {
 	  line-width: 1.5;
-	  line-color: #77c5f5;
-	  line-opacity: 0.5;
+	  line-color: #78D19C;
+	  line-opacity: 0.3;
 	}
 `);
 

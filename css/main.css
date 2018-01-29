@@ -298,6 +298,7 @@ font-style: line-height;
 
 #bike-security-container .row {
 	margin-right: 0;
+	margin-left: 0;
 }
 
 .gradient-map-overlay {
@@ -341,15 +342,8 @@ font-style: line-height;
 }
 
 .step {
-	margin: 2rem auto;
-}
-
-.step p {
+	padding-top: 50%;
 	color: white;
-	padding: 1rem;
-	-moz-transform: translateY(100%);
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
