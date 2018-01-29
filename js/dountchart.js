@@ -1,6 +1,6 @@
 var data = [
     {
-        "str_lab": "Radwegesasdfafds",
+        "str_lab": "Radwege",
         "num": 100,
         "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated."
     },

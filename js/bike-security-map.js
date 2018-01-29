@@ -107,7 +107,7 @@ L.control.zoom({
 	position: 'topright'
 }).addTo(securityMap);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
   maxZoom: 18
 }).addTo(securityMap);
 
