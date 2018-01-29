@@ -150,15 +150,15 @@ var g = svg.selectAll(".arc")
             //tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
         })
 
-/*
-        .on("mouseover", function(d)) {
+
+        .on("mouseover", function(d) {
           d3.select('pattern image')
             .attr('xlink:href', d.data.image);
           svg.select('circle.image')
             .attr('fill', 'url(#image)')
 
         })
-*/
+
       .on("mouseout", function(d){
           d3.select(this)
               .attr("stroke","none")
