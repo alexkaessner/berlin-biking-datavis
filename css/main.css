@@ -275,6 +275,18 @@ font-style: line-height;
   fill: url(#morgenpost-gradient);
 }
 
+.legend div {
+	display: inline-block;
+}
+
+.legend-dot {
+	width: 10px;
+	height: 10px;
+	margin-left: 30px;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++ SECURITY SCROLLYTELLING ++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
