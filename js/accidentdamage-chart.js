@@ -45,7 +45,15 @@ d3.csv("../data/accidentdamage-chart.csv", function(d, i, columns) {
       .attr("y", function(d) { return AD_y(d.data.type); })
       .attr("x", function(d) { return AD_x(d[0]); })
       .attr("width", function(d) { return AD_x(d[1]) - AD_x(d[0]); })
-      .attr("height", AD_y.bandwidth());
+      .attr("height", AD_y.bandwidth())
+      .on("mouseover", function() { AD_tooltip.style("display", "block"); })
+      .on("mouseout", function() { AD_tooltip.style("display", "none"); })
+      .on("mousemove", function(d) {
+        var xPosition = d3.mouse(this)[0] - 50;
+        var yPosition = d3.mouse(this)[1] - 10;
+        AD_tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+        AD_tooltip.select("text").text(d[1] - d[0]);
+      });
 
 	AD_svg.append("g")
       .attr("class", "x-axis")
@@ -63,4 +71,24 @@ d3.csv("../data/accidentdamage-chart.csv", function(d, i, columns) {
 						.tickSize(0)
 					)
 		.select(".domain").remove();
+
+  // Prep the tooltip bits, initial display is hidden
+  var AD_tooltip = AD_svg.append("g")
+    .attr("class", "asdf")
+    .style("display", "none");
+
+  AD_tooltip.append("rect")
+    .attr("width", 40)
+    .attr("height", 20)
+    .attr("fill", "black")
+    .attr("rx", "4")
+    .attr("ry", "4")
+    .style("opacity", 0.8);
+
+  AD_tooltip.append("text")
+    .attr("x", 20)
+    .attr("dy", "1.1em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "14px")
+    .attr("fill", "white");
 });
