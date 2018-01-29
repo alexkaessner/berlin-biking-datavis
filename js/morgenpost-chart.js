@@ -1,41 +1,41 @@
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: -55, bottom: 0, left: 00},
-    width = 670 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
+var MP_margin = {top: 10, right: -55, bottom: 0, left: 00},
+    MP_width = 670 - MP_margin.left - MP_margin.right,
+    MP_height = 200 - MP_margin.top - MP_margin.bottom;
 
 // set the ranges
-var x = d3.scaleBand().range([0, width])
+var MP_x = d3.scaleBand().range([0, MP_width])
 				.padding(0);
-var y = d3.scaleLinear().range([height, 0]);
+var MP_y = d3.scaleLinear().range([MP_height, 0]);
 
 // define the area
-var area = d3.area()
+var MP_area = d3.area()
 		.curve(d3.curveNatural)
-    .x(function(d) { return x(d.safetylevel); })
-    .y0(height)
-    .y1(function(d) { return y(d.votes); });
+    .x(function(d) { return MP_x(d.safetylevel); })
+    .y0(MP_height)
+    .y1(function(d) { return MP_y(d.votes); });
 
 // define the line
 var valueline = d3.line()
 		.curve(d3.curveNatural)
-    .x(function(d) { return x(d.safetylevel); })
-    .y(function(d) { return y(d.votes); });
+    .x(function(d) { return MP_x(d.safetylevel); })
+    .y(function(d) { return MP_y(d.votes); });
 
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
-var svg = d3.select("#morgenpost-chart").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+// moves the 'group' element to the top left MP_margin
+var MP_svg = d3.select("#morgenpost-chart").append("svg")
+    .attr("width", MP_width + MP_margin.left + MP_margin.right)
+    .attr("height", MP_height + MP_margin.top + MP_margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + MP_margin.left + "," + MP_margin.top + ")");
 
 // get the data
 d3.csv("../data/morgenpost-chart.csv", function(error, data) {
   if (error) throw error;
 
 	// create the gradient for the chart
-	svg.append("linearGradient")
+	MP_svg.append("linearGradient")
 	    .attr("id", "morgenpost-gradient")
 	    .attr("gradientUnits", "userSpaceOnUse")
 	    .attr("x1", 0).attr("y1", 0)
@@ -58,13 +58,13 @@ d3.csv("../data/morgenpost-chart.csv", function(error, data) {
   });
 
   // scale the range of the data
-  x.domain(data.map(function(d){ return d.safetylevel }));
-  y.domain([0, d3.max(data, function(d) { return d.votes; })]);
+  MP_x.domain(data.map(function(d){ return d.safetylevel }));
+  MP_y.domain([0, d3.max(data, function(d) { return d.votes; })]);
 
   // add the area
-    svg.append("path")
+    MP_svg.append("path")
        .data([data])
        .attr("class", "area")
-       .attr("d", area);
+       .attr("d", MP_area);
 
 });
