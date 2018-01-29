@@ -1,19 +1,23 @@
 var data = [
     {
-        "str_lab": "A",
-        "num": 100
+        "str_lab": "Radweges",
+        "num": 100,
+        "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated."
     },
     {
-        "str_lab": "B",
-        "num": 44
+        "str_lab": "Radfahrstreifen",
+        "num": 44,
+        "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there."
     },
     {
-        "str_lab": "C",
-        "num": 215
+        "str_lab": "Schutzstreifen",
+        "num": 215,
+        "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed."
     },
     {
-        "str_lab": "D",
-        "num": 10
+        "str_lab": "Bussonderfahrstreifen",
+        "num": 10,
+        "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane when marked with a extra road sign. Bus lanes can either have dashed or solid lines."
     }
 ];
 
@@ -25,7 +29,7 @@ var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
 
 var color = d3.scale.ordinal()
-    .range(["red","blue","yellow", "black"]);
+    .range(["#5FB47E","#3F678B","#F9E755", "#3E0A51"]);
 
 var arc = d3.svg.arc()
     .padRadius(outerRadius)

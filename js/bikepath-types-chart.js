@@ -1,11 +1,12 @@
+/*
 var data = [
     {
-        "str_lab": "Radwege",
+        "str_lab": "Radwege2",
         "num": 100,
         "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit."
     },
     {
-        "str_lab": "Radfahrstreifen",
+        "str_lab": "Radfahrstreifen2",
         "num": 44,
         "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit."
     },
@@ -56,17 +57,16 @@ var filter = defs.append("filter")
                 .attr("id", "drop-shadow")
                .attr("height","130%");
 
-filter.append("feGaussianBlur")
-        .attr("in","SourceAlpha")
-        .attr("stdDeviation", 0)
-        .attr("result", "blur");
+
 
 filter.append("feOffset")
     .attr("in", "blur")
     .attr("dx", 0)
     .attr("dy", 0)
     .attr("result", "offsetBlur");
-    var feMerge = filter.append("feMerge");
+
+
+
 
 
 
@@ -152,7 +152,7 @@ var g = svg.selectAll(".arc")
 
       //Number 4
       var centerSvg = svg.append('circle')
-        .attr('fill','#42A5F5')
+        .attr('fill',"green")
         .attr('r','62');
 
 
@@ -166,3 +166,4 @@ var g = svg.selectAll(".arc")
                style("fill", "url(#image)");
      });
                 //.html(data.length);
+*/

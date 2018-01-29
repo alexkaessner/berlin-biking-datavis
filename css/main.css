@@ -171,11 +171,14 @@ h5 {
 
 
 #bikepath-types-chart{
-	height: 300px;
-	width: 300px;
+	height: 500px;
+	width: 500px;
 	text-align: center;
-	padding-top: 10px;
+
 	padding-left: 200px;
+	margin-bottom: 0px;
+	display: inline-block;
+
 }
 
 .arc text {
