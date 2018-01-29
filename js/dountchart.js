@@ -1,6 +1,6 @@
 var data = [
     {
-        "str_lab": "Radweges",
+        "str_lab": "Radwegesasdfafds",
         "num": 100,
         "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated."
     },
@@ -29,7 +29,7 @@ var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
 
 var color = d3.scale.ordinal()
-    .range(["#5FB47E","#3F678B","#F9E755", "#3E0A51"]);
+    .range(["#5FB47E","#3F678B","#F9E755", 'green']);
 
 var arc = d3.svg.arc()
     .padRadius(outerRadius)

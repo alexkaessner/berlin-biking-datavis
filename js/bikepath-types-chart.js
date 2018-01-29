@@ -23,8 +23,8 @@ var data = [
 ];
 
 
-var width = 300,
-    height = 300,
+var width = 600,
+    height = 600,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
@@ -42,7 +42,7 @@ var pie = d3.layout.pie()
     .padAngle(0.0)
     .value(function(d) { return d.num; });
 
-d3.select("#bikepath-types-chart").append("div")
+d3.select("#chart").append("div")
     .attr("id","mainPie")
     .attr("class","pieBox");
 

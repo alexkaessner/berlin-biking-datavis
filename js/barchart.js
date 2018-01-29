@@ -1,3 +1,4 @@
+/*
 var data = [
   {
     "Name": "Radwege",
@@ -123,3 +124,5 @@ hGuide.selectAll('path')
     .style({fill:'none',stroke:"#000"})
 hGuide.selectAll('line')
     .style({stroke:"#000"})
+
+*/

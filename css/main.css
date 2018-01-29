@@ -173,7 +173,7 @@ h5 {
 /* +++++++++++++++++++++++++ Bike path types chart ++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-
+/*
 #bikepath-types-chart{
 	height: 500px;
 	width: 500px;
@@ -182,6 +182,18 @@ h5 {
 	padding-left: 200px;
 	margin-bottom: 0px;
 	display: inline-block;
+
+}
+*/
+
+#chart{
+	/*height: 500px;
+	width: 500px;*/
+	text-align: center;
+
+	padding-left: 200px;
+	/*margin-bottom: 0px; */
+	/*display: inline-block;*/
 
 }
 
