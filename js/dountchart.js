@@ -26,8 +26,8 @@ var data = [
 ];
 
 
-var width = 300,
-    height = 300,
+var width = 500,
+    height = 500,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
@@ -84,15 +84,15 @@ feMerge.append("feMergeNode")
 feMerge.append("feMergeNode")
     .attr("in", "SourceGraphic");
 
-
 var pattern = defs.append('pattern')
     .attr('id', 'image')
     .attr('patternUnits', 'userSpaceOnUse')
-    .attr('width', 300)
-    .attr('height', 300);
+    .attr('width', width)
+    .attr('height', height);
 
-var image = pattern.append('image').attr('x', 0).attr('y', 0).attr('width', 124)
-    .attr('height', 124);
+var imageRadius = radius * 0.45;
+var image = pattern.append('image').attr('x', width / 2 - imageRadius).attr('y', height / 2 - imageRadius).attr('width', 1.95 * imageRadius)
+    .attr('height', 1.95 * imageRadius);
 
 // Define the div for the tooltip
 var tooltipCenter = d3.selectAll("#centerTooltip").append("span")
@@ -132,8 +132,8 @@ var g = g.selectAll(".arc")
             var mousePos = d3.mouse(divNode);
 
             d3.select("#mainTooltip")
-              .style("left", mousePos[0] - 40 + "px")
-              .style("top", mousePos[1] - 70 + "px")
+              .style("left", mousePos[0] + 20 + "px")
+              .style("top", mousePos[1] - 50 + "px")
               .select("#value")
               .attr("text-anchor", "middle")
               .html(d.data.str_lab + "<br />" + d.data.info);
@@ -194,6 +194,5 @@ var g = g.selectAll(".arc")
       var centerSvg = d3.select("#mainPie svg").append('circle')
         .attr('class', 'image')
         .attr('fill','red')
-        .attr('r','62')
-        .attr('cx', 62).attr('cy', 62)
-.attr('transform', 'translate(88,88)')
+        .attr('r', imageRadius)
+.attr('cx', width / 2).attr('cy', height / 2)
