@@ -13,7 +13,7 @@ var scroller = scrollama();
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepHeight = Math.floor(window.innerHeight * 0.75);
+	var stepHeight = Math.floor(window.innerHeight * 1);
 	step.style('height', stepHeight + 'px');
 
 	// 2. update width/height of graphic element
@@ -39,16 +39,25 @@ function handleStepEnter(response) {
 	// update graphic based on step
 	if (response.index == 0) {
     // reset to initial position
-		securityMap.flyTo([52.520008, 13.404954], 13);
+		securityMap.flyTo([52.516369, 13.380871], 12);
 	}
   if (response.index == 1) {
-		securityMap.flyTo([52.549479, 13.413720], 16);
+		securityMap.flyTo([52.516369, 13.380871], 12);
 	}
   if (response.index == 2) {
-		securityMap.flyTo([52.516369, 13.380871], 16);
+		securityMap.flyTo([52.549479, 13.413720], 16);
 	}
   if (response.index == 3) {
+		securityMap.flyTo([52.516369, 13.380871], 16);
+	}
+  if (response.index == 4) {
 		securityMap.flyTo([52.528292, 13.409065], 16);
+	}
+	if (response.index == 5) {
+		securityMap.flyTo([52.487090, 13.424768], 16);
+	}
+	if (response.index == 6) {
+		securityMap.flyTo([52.509486, 13.376373], 16);
 	}
 }
 
@@ -97,14 +106,14 @@ init();
 // CARTO MAP LOADING
 
 var securityMap = L.map('bike-security-map', {
-	center: [52.520008, 13.404954],
-	zoom: 13,
+	center: [52.516369, 13.380871],
+	zoom: 12,
 	scrollWheelZoom: false,
 	zoomControl: false
 });
 
 L.control.zoom({
-	position: 'topright'
+	position: 'bottomright'
 }).addTo(securityMap);
 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
@@ -116,28 +125,73 @@ const securityMapClient = new carto.Client({
   username: config.CARTO_USERNAME
 });
 
-const securityMapSource = new carto.source.SQL(`
+const securityMapSource1 = new carto.source.SQL(`
   SELECT *
     FROM berlin_bike_accident_spots_2016_1
 `);
 
+const securityMapSource2 = new carto.source.SQL(`
+  SELECT *
+    FROM radsicherheitsdialog_top_spots
+`);
 
-const securityMapStyle = new carto.style.CartoCSS(`
+const securityMapStyle0 = new carto.style.CartoCSS(`
 	#layer {
-	  marker-width: ramp([count], range(5, 20), quantiles(5));
-	  marker-fill: #ff0900;
-	  marker-fill-opacity: 1;
+	  line-width: 1.5;
+	  line-color: #78D19C;
+	  line-opacity: 0.3;
+	}
+`);
+
+const securityMapStyle1 = new carto.style.CartoCSS(`
+	#layer {
+	  marker-width: ramp([count], range(6, 45), equal(7));
+	  marker-fill: #ff0000;
+	  marker-fill-opacity: 0.6;
 	  marker-allow-overlap: true;
 	  marker-line-width: 0;
-	  marker-line-color: #FFFFFF;
+	  marker-line-color: #ff0000;
 	  marker-line-opacity: 1;
 	}
 `);
 
-const securityMapLayer = new carto.layer.Layer(securityMapSource, securityMapStyle, {
+const securityMapStyle2 = new carto.style.CartoCSS(`
+	#layer {
+	  marker-width: 45;
+	  marker-fill: #1463d9;
+	  marker-fill-opacity: 0.25;
+	  marker-allow-overlap: true;
+	  marker-line-width: 1;
+	  marker-line-color: #1463d9;
+	  marker-line-opacity: 1;
+	}
+	#layer::labels {
+	  text-name: [name];
+	  text-face-name: 'DejaVu Sans Book';
+	  text-size: 10;
+	  text-fill: #FFFFFF;
+	  text-label-position-tolerance: 0;
+	  text-halo-radius: 1;
+	  text-halo-fill: #6F808D;
+	  text-dy: -10;
+	  text-allow-overlap: true;
+	  text-placement: point;
+	  text-placement-type: dummy;
+	}
+`);
+
+const securityMapLayer0 = new carto.layer.Layer(bikePathsMapSource, securityMapStyle0, {
+  featureOverColumns: ['rva_typ', 'stst_str']
+});
+
+const securityMapLayer1 = new carto.layer.Layer(securityMapSource1, securityMapStyle1, {
   featureOverColumns: ['count']
 });
 
+const securityMapLayer2 = new carto.layer.Layer(securityMapSource2, securityMapStyle2);
+
 // load maps at last!
-securityMapClient.addLayer(securityMapLayer);
+securityMapClient.addLayer(securityMapLayer0);
+securityMapClient.addLayer(securityMapLayer1);
+securityMapClient.addLayer(securityMapLayer2);
 securityMapClient.getLeafletLayer().addTo(securityMap);
