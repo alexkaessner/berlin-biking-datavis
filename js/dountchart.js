@@ -2,28 +2,32 @@ var data = [
     {
         "str_lab": "Radwege",
         "num": 100,
-        "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated."
+        "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
+        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/radweg.svg'
     },
     {
         "str_lab": "Radfahrstreifen",
         "num": 44,
-        "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there."
+        "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.",
+        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/radfahrstreifen.svg'
     },
     {
         "str_lab": "Schutzstreifen",
         "num": 215,
-        "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed."
+        "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
+        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/schutzstreifen.svg'
     },
     {
         "str_lab": "Bussonderfahrstreifen",
         "num": 10,
-        "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane when marked with a extra road sign. Bus lanes can either have dashed or solid lines."
+        "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane when marked with a extra road sign. Bus lanes can either have dashed or solid lines.",
+        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/bussonderstreifen.svg'
     }
 ];
 
 
-var width = 500,
-    height = 500,
+var width = 300,
+    height = 300,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
@@ -41,7 +45,7 @@ var div = d3.select("body").append("div")
 
 var pie = d3.pie()
     .sort(null)
-    .padAngle(0.03)
+    .padAngle(0.0)
     .value(function(d) { return d.num; });
 
 d3.select("#chart").append("div")
@@ -50,14 +54,17 @@ d3.select("#chart").append("div")
 
 var svg = d3.select("#mainPie").append("svg")
     .attr("width", width)
-    .attr("height", height)
+    .attr("height", height);
+
+
+var g = svg
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 var defs = svg.append("defs");
 var filter = defs.append("filter")
-                .attr("id", "drop-shadow")
-               .attr("height","130%");
+    .attr("id", "drop-shadow")
+    .attr("height","130%");
 
 filter.append("feGaussianBlur")
         .attr("in","SourceAlpha")
@@ -72,19 +79,20 @@ filter.append("feOffset")
     var feMerge = filter.append("feMerge");
 
 
-
 feMerge.append("feMergeNode")
     .attr("in", "offsetBlur")
 feMerge.append("feMergeNode")
     .attr("in", "SourceGraphic");
 
 
-//Number 4
-var centerSvg = svg.append('circle')
-  .attr('fill','#42A5F5')
-  .attr("class","centerCircle")
-  .style("opacity", .5)
-  .attr('r','62');
+var pattern = defs.append('pattern')
+    .attr('id', 'image')
+    .attr('patternUnits', 'userSpaceOnUse')
+    .attr('width', 300)
+    .attr('height', 300);
+
+var image = pattern.append('image').attr('x', 0).attr('y', 0).attr('width', 300)
+    .attr('height', 300);
 
 // Define the div for the tooltip
 var tooltipCenter = d3.selectAll("#centerTooltip").append("span")
@@ -139,9 +147,18 @@ var g = svg.selectAll(".arc")
             tooltipCenter.transition()
                 .duration(0)
                 .style("opacity", .9);
-            tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
+            //tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
         })
 
+/*
+        .on("mouseover", function(d)) {
+          d3.select('pattern image')
+            .attr('xlink:href', d.data.image);
+          svg.select('circle.image')
+            .attr('fill', 'url(#image)')
+
+        })
+*/
       .on("mouseout", function(d){
           d3.select(this)
               .attr("stroke","none")
@@ -171,3 +188,12 @@ var g = svg.selectAll(".arc")
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
       })
+
+
+      //centerCircle
+      var centerSvg = d3.select("#mainPie svg").append('circle')
+        .attr('class', 'image')
+        .attr('fill','red')
+        .attr('r','110')
+        .attr('cx', 160).attr('cy', 160)
+        .attr('transform', 'translate(88,88)')
