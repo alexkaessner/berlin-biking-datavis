@@ -3,25 +3,25 @@ var data = [
         "str_lab": "Radwege",
         "num": 100,
         "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
-        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/radweg.svg'
+        "image": 'graphics/bikepath-types/radweg.svg'
     },
     {
         "str_lab": "Radfahrstreifen",
         "num": 44,
         "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.",
-        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/radfahrstreifen.svg'
+        "image": 'graphics/bikepath-types/radfahrstreifen.svg'
     },
     {
         "str_lab": "Schutzstreifen",
         "num": 215,
         "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
-        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/schutzstreifen.svg'
+        "image": 'graphics/bikepath-types/schutzstreifen.svg'
     },
     {
         "str_lab": "Bussonderfahrstreifen",
         "num": 10,
         "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane when marked with a extra road sign. Bus lanes can either have dashed or solid lines.",
-        "image": 'http://uni.alexkaessner.de/berlin-biking-datavis/graphics/bikepath-types/bussonderstreifen.svg'
+        "image": 'graphics/bikepath-types/bussonderstreifen.svg'
     }
 ];
 
@@ -91,14 +91,14 @@ var pattern = defs.append('pattern')
     .attr('width', 300)
     .attr('height', 300);
 
-var image = pattern.append('image').attr('x', 0).attr('y', 0).attr('width', 300)
-    .attr('height', 300);
+var image = pattern.append('image').attr('x', 0).attr('y', 0).attr('width', 124)
+    .attr('height', 124);
 
 // Define the div for the tooltip
 var tooltipCenter = d3.selectAll("#centerTooltip").append("span")
     .style("opacity", 0);
 
-var g = svg.selectAll(".arc")
+var g = g.selectAll(".arc")
       .data(pie(data))
     .enter().append("g")
       .attr("class", "arc")
@@ -194,6 +194,6 @@ var g = svg.selectAll(".arc")
       var centerSvg = d3.select("#mainPie svg").append('circle')
         .attr('class', 'image')
         .attr('fill','red')
-        .attr('r','110')
-        .attr('cx', 160).attr('cy', 160)
-        .attr('transform', 'translate(88,88)')
+        .attr('r','62')
+        .attr('cx', 62).attr('cy', 62)
+.attr('transform', 'translate(88,88)')
