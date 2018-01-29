@@ -22,8 +22,8 @@ var data = [
 ];
 
 
-var width = 600,
-    height = 600,
+var width = 500,
+    height = 500,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
