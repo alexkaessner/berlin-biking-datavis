@@ -106,8 +106,8 @@ init();
 // CARTO MAP LOADING
 
 var securityMap = L.map('bike-security-map', {
-	center: [52.520008, 13.404954],
-	zoom: 13,
+	center: [52.516369, 13.380871],
+	zoom: 12,
 	scrollWheelZoom: false,
 	zoomControl: false
 });

@@ -6,7 +6,7 @@ var bikePathsMap = L.map('bike-paths-map', {
   scrollWheelZoom: false
 });
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   maxZoom: 18
 }).addTo(bikePathsMap);
 
