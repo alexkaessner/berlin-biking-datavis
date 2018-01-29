@@ -22,8 +22,8 @@ var data = [
 ];
 
 
-var width = 300,
-    height = 300,
+var width = 600,
+    height = 600,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
@@ -128,7 +128,7 @@ var g = svg.selectAll(".arc")
               .style("top", mousePos[1] - 70 + "px")
               .select("#value")
               .attr("text-anchor", "middle")
-              .html(d.data.str_lab + "<br />" + d.data.num);
+              .html(d.data.str_lab + "<br />" + d.data.info);
 
           d3.select("#mainTooltip").classed("hidden", false);
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
