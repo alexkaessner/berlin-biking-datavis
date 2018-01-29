@@ -293,7 +293,7 @@ font-style: line-height;
 #bike-security-container {
 	position: relative;
 	display: block;
-	background-color: #262522;
+	background-color: #0A0A0A;
 }
 
 #bike-security-container .row {
@@ -304,9 +304,9 @@ font-style: line-height;
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 50%;
+	width: 20%;
 	height: 100%;
-	background-image: linear-gradient(-90deg, rgba(38,37,34,0.00) 0%, #262522 100%);
+	background-image: linear-gradient(-90deg, rgba(10,10,10,0.00) 0%, #0A0A0A 100%);
 	z-index: 1000;
 	pointer-events: none;
 }

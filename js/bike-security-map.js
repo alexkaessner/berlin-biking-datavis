@@ -116,28 +116,73 @@ const securityMapClient = new carto.Client({
   username: config.CARTO_USERNAME
 });
 
-const securityMapSource = new carto.source.SQL(`
+const securityMapSource1 = new carto.source.SQL(`
   SELECT *
     FROM berlin_bike_accident_spots_2016_1
 `);
 
+const securityMapSource2 = new carto.source.SQL(`
+  SELECT *
+    FROM radsicherheitsdialog_top_spots
+`);
 
-const securityMapStyle = new carto.style.CartoCSS(`
+const securityMapStyle0 = new carto.style.CartoCSS(`
 	#layer {
-	  marker-width: ramp([count], range(5, 20), quantiles(5));
-	  marker-fill: #ff0900;
-	  marker-fill-opacity: 1;
+	  line-width: 1.5;
+	  line-color: #77c5f5;
+	  line-opacity: 0.5;
+	}
+`);
+
+const securityMapStyle1 = new carto.style.CartoCSS(`
+	#layer {
+	  marker-width: ramp([count], range(6, 45), equal(7));
+	  marker-fill: #ff0000;
+	  marker-fill-opacity: 0.6;
 	  marker-allow-overlap: true;
 	  marker-line-width: 0;
-	  marker-line-color: #FFFFFF;
+	  marker-line-color: #ff0000;
 	  marker-line-opacity: 1;
 	}
 `);
 
-const securityMapLayer = new carto.layer.Layer(securityMapSource, securityMapStyle, {
+const securityMapStyle2 = new carto.style.CartoCSS(`
+	#layer {
+	  marker-width: 45;
+	  marker-fill: #1463d9;
+	  marker-fill-opacity: 0.25;
+	  marker-allow-overlap: true;
+	  marker-line-width: 1;
+	  marker-line-color: #1463d9;
+	  marker-line-opacity: 1;
+	}
+	#layer::labels {
+	  text-name: [name];
+	  text-face-name: 'DejaVu Sans Book';
+	  text-size: 10;
+	  text-fill: #FFFFFF;
+	  text-label-position-tolerance: 0;
+	  text-halo-radius: 1;
+	  text-halo-fill: #6F808D;
+	  text-dy: -10;
+	  text-allow-overlap: true;
+	  text-placement: point;
+	  text-placement-type: dummy;
+	}
+`);
+
+const securityMapLayer0 = new carto.layer.Layer(bikePathsMapSource, securityMapStyle0, {
+  featureOverColumns: ['rva_typ', 'stst_str']
+});
+
+const securityMapLayer1 = new carto.layer.Layer(securityMapSource1, securityMapStyle1, {
   featureOverColumns: ['count']
 });
 
+const securityMapLayer2 = new carto.layer.Layer(securityMapSource2, securityMapStyle2);
+
 // load maps at last!
-securityMapClient.addLayer(securityMapLayer);
+securityMapClient.addLayer(securityMapLayer0);
+securityMapClient.addLayer(securityMapLayer1);
+securityMapClient.addLayer(securityMapLayer2);
 securityMapClient.getLeafletLayer().addTo(securityMap);
