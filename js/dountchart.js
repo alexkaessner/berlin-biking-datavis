@@ -193,6 +193,6 @@ var g = g.selectAll(".arc")
       //centerCircle
       var centerSvg = d3.select("#mainPie svg").append('circle')
         .attr('class', 'image')
-        .attr('fill','red')
+        .attr('fill','white')
         .attr('r', imageRadius)
 .attr('cx', width / 2).attr('cy', height / 2)
