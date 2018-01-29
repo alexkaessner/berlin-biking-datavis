@@ -28,10 +28,10 @@ var width = 600,
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 10;
 
-var color = d3.scale.ordinal()
+var color = d3.scaleOrdinal()
     .range(["#5FB47E","#3F678B","#F9E755", 'blue']);
 
-var arc = d3.svg.arc()
+var arc = d3.arc()
     .padRadius(outerRadius)
     .innerRadius(radius * 0.5);
 
@@ -39,7 +39,7 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-var pie = d3.layout.pie()
+var pie = d3.pie()
     .sort(null)
     .padAngle(0.03)
     .value(function(d) { return d.num; });
@@ -111,7 +111,7 @@ var g = svg.selectAll(".arc")
           d3.select(this)
             .transition()
             .duration(500)
-            .ease('bounce')
+            .ease(d3.easeBounce)
             .attr('transform',function(d){
               var dist = 1;
               d.midAngle = ((d.endAngle - d.startAngle)/2) + d.startAngle;
@@ -149,7 +149,7 @@ var g = svg.selectAll(".arc")
           d3.select(this)
             .transition()
             .duration(500)
-            .ease('bounce')
+            .ease(d3.easeBounce)
             .attr('transform','translate(0,0)');
 
           d3.select("#mainTooltip").classed("hidden", true);
