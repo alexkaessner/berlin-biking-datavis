@@ -24,7 +24,7 @@ const bikePathsMapSource = new carto.source.SQL(`
 const bikePathsMapStyle = new carto.style.CartoCSS(`
   #layer {
     line-width: 2.5;
-    line-color: ramp([rva_typ], ("#ef255f", "#1d6996", "#38a6a5", "#ffd460", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen",  ), '=');
+    line-color: ramp([rva_typ], ("#3E0A51", "#3F678B", "#4B9064", "#ffd460", "#FCD016"), ("Cycle Tracks/Paths", "Advisory Bike Lanes", "Bike Lanes", "Bus Lanes",  ), '=');
   }
 `);
 

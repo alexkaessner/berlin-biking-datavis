@@ -1,24 +1,24 @@
 var data = [
     {
-        "str_lab": "Radwege",
+        "str_lab": "Cycle Tracks/Paths",
         "num": 100,
         "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
         "image": 'graphics/bikepath-types/radweg.svg'
     },
     {
-        "str_lab": "Radfahrstreifen",
+        "str_lab": "Bike Lanes",
         "num": 44,
         "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.",
         "image": 'graphics/bikepath-types/radfahrstreifen.svg'
     },
     {
-        "str_lab": "Schutzstreifen",
+        "str_lab": "Advisory Bike Lanes",
         "num": 215,
         "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
         "image": 'graphics/bikepath-types/schutzstreifen.svg'
     },
     {
-        "str_lab": "Bussonderfahrstreifen",
+        "str_lab": "Bus Lanes",
         "num": 10,
         "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane when marked with a extra road sign. Bus lanes can either have dashed or solid lines.",
         "image": 'graphics/bikepath-types/bussonderstreifen.svg'
@@ -33,7 +33,7 @@ var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 9;
 
 var color = d3.scaleOrdinal()
-    .range(["#5FB47E","#3F678B","#F9E755", 'blue']);
+    .range(["#3E0A51","#4B9064","#3F678B", '#FCD016']);
 
 var arc = d3.arc()
     .padRadius(outerRadius)
@@ -194,5 +194,6 @@ var g = g.selectAll(".arc")
       var centerSvg = d3.select("#mainPie svg").append('circle')
         .attr('class', 'image')
         .attr('fill','white')
+        //.attr('xlink:href', 'graphics/bikepath-types/radfahrstreifen.svg');
         .attr('r', imageRadius)
 .attr('cx', width / 2).attr('cy', height / 2)
