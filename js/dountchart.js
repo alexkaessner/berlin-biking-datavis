@@ -30,7 +30,7 @@ var width = 500,
     height = 500,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
-var outerRadius = height / 2 - 10;
+var outerRadius = height / 2 - 9;
 
 var color = d3.scaleOrdinal()
     .range(["#5FB47E","#3F678B","#F9E755", 'blue']);
@@ -135,8 +135,8 @@ var g = g.selectAll(".arc")
               .style("left", mousePos[0] + 20 + "px")
               .style("top", mousePos[1] - 50 + "px")
               .select("#value")
-              .attr("text-anchor", "middle")
-              .html(d.data.str_lab + "<br />" + d.data.info);
+              //.attr("text-anchor", "middle")
+              .html("<h5>" + d.data.str_lab + "</h5>" + "<br />" + "<p>" + d.data.info + "</p>");
 
           d3.select("#mainTooltip").classed("hidden", false);
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {

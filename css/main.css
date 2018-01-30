@@ -204,8 +204,7 @@ h5 {
 }
 
 .arc text {
-	text-anchor: middle;
-	font-size: 16px;
+
 }
 
 .pieBox{
@@ -230,9 +229,8 @@ h5 {
 		font-weight: 600;
 }
 #mainTooltip {
-font-size: 16px;
-font-family: "Fira Sans";
-font-style: line-height;
+
+
 
 	position: absolute;
 	width :297px;
@@ -247,10 +245,8 @@ font-style: line-height;
 	background-color: rgba(0,0,0,0.9);
 	pointer-events: none;
 	color: #fff;
-	text-anchor: middle;
 	text-align: left;
 
-	z-index: 9999;
 }
 #mainTooltip:before {
 	border: solid;
@@ -258,7 +254,7 @@ font-style: line-height;
 	border-width: 10px 10px 0 10px;
 	display: inline-block;
 
-	content: "";
+
 
 	/*left: 50%;*/
 
