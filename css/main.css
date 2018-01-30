@@ -408,3 +408,7 @@ display: block;
 .jumbotron {
 	padding: 2rem 2rem;
 }
+
+.jumbotron .btn {
+	margin: 8px 0px;
+}
