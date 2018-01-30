@@ -55,49 +55,14 @@
 				</p>
 			</div>
 
-			<div id="bikepath-types" class="container wide-container">
-			  <div class="row">
-			    <div class="col-6">
-						<img src="graphics/bikepath-types/schutzstreifen.svg" class="img-fluid" alt="Schutzstreifen">
-						<h5>Advisory Bike Lanes</h5>
-			      <p>This bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.</p>
-			    </div>
-			    <div class="col-6">
-						<img src="graphics/bikepath-types/radfahrstreifen.svg" class="img-fluid" alt="Radfahrstreifen">
-						<h5>Bike Lanes</h5>
-			      <p>Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.</p>
-			    </div>
-			  </div>
-				<div class="row">
-			    <div class="col-6">
-						<img src="graphics/bikepath-types/bussonderstreifen.svg" class="img-fluid" alt="Bussonderfahrstreifen">
-						<h5>Bus Lanes</h5>
-			      <p>Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane as a bicyclist, when marked with a extra road sign. Bus lanes can either have dashed or solid lines.</p>
-			    </div>
-			    <div class="col-6">
-						<img src="graphics/bikepath-types/radweg.svg" class="img-fluid" alt="Radweg">
-						<h5>Cycle Tracks/Paths</h5>
-			      <p>Cycle tracks are dedicated lanes seperated from the road. Usually cycle tracks are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.</p>
-			    </div>
-			  </div>
-				<div class="row">
-			    <div class="col-6">
-						<img src="graphics/bikepath-types/geschuetzter-radweg.svg" class="img-fluid" alt="geschützte Radstreifen">
-						<h5>Protected Bike Lanes</h5>
-			      <p>Protected bike lanes are new in Germany. They are physically separated lanes dedicated to bikes only.</p>
-			    </div>
-			  </div>
-			</div>
-
-
-
 			<!-- ++++++++++++++++++++++++++++++ Diagram Donutchart ++++++++++++++++++++++++++++++ -->
 
 			<div class="container">
-				<h4>bike path types</h4>
-				<div id="chart"></div> <!-- id="chart" -->
-					<div id="mainTooltip" class="hidden">
-				  	<p><span id="value"></span></p>
+				<h4>Bike Path Types in Berlin 2016</h4>
+				<p class="footnote text-center">Source: <a href="https://daten.berlin.de/datensaetze">Berlin Open Data - Berlin.de</a></p>
+				<div id="chart"></div>
+				<div id="mainTooltip" class="hidden">
+				  <p><span id="value"></span></p>
 				</div>
 				<span id="centerTooltip" class="hidden"></span>
 					<div class="text-center legend">
@@ -117,7 +82,7 @@
 				  <ul>
 				    <li onclick="setAll()">
 				      <input type="radio" name="style" value="01" checked  id="bike path types">
-				    <label for="bike path types">bike path types</label>
+				    <label for="bike path types">All Bike Path Types</label>
 				  </li>
 				    <li onclick="setRadwege()">
 				      <input type="radio" name="style" value="02" id="Cycle Tracks/Paths">

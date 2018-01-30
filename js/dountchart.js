@@ -2,7 +2,7 @@ var data = [
     {
         "str_lab": "Cycle Tracks/Paths",
         "num": 214,
-        "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
+        "info": "Cycle tracks are dedicated lanes seperated from the road. Usually cycle tracks are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
         "image": 'graphics/bikepath-types/radweg.svg'
     },
     {
@@ -14,20 +14,20 @@ var data = [
     {
         "str_lab": "Advisory Bike Lanes",
         "num": 100,
-        "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
+        "info": "This bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
         "image": 'graphics/bikepath-types/schutzstreifen.svg'
     },
     {
         "str_lab": "Bus Lanes",
         "num": 10,
-        "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane when marked with a extra road sign. Bus lanes can either have dashed or solid lines.",
+        "info": "Bus lanes are special lanes only for busses and taxis. You are allowed to use this lane as a bicyclist, when marked with a extra road sign. Bus lanes can either have dashed or solid lines.",
         "image": 'graphics/bikepath-types/bussonderstreifen.svg'
     }
 ];
 
 
-var width = 500,
-    height = 500,
+var width = 600,
+    height = 600,
     radius = Math.min(width, height) / 2;
 var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 9;
@@ -37,7 +37,7 @@ var color = d3.scaleOrdinal()
 
 var arc = d3.arc()
     .padRadius(outerRadius)
-    .innerRadius(radius * 0.5);
+    .innerRadius(radius * 0.6);
 
 var div = d3.select("body").append("div")
     .attr("class", "tooltip")
@@ -136,7 +136,7 @@ var g = g.selectAll(".arc")
               .style("top", mousePos[1] - 50 + "px")
               .select("#value")
               //.attr("text-anchor", "middle")
-              .html("<h5>" + d.data.str_lab + "</h5>" + "<br />" + "<p>" + d.data.info + "</p>");
+              .html("<h5>" + d.data.str_lab + "</h5>" + "<p>" + d.data.info + "</p>");
 
           d3.select("#mainTooltip").classed("hidden", false);
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {

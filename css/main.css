@@ -194,15 +194,10 @@ h5 {
 */
 
 #chart{
-	height: 500px;
-	width: 500px;
+	height: 600px;
+	width: 600px;
 	text-align: center;
-
-	padding-left: 100px;
-	margin-bottom: auto;
-	/*margin-bottom: 0px; */
-	/*display: inline-block;*/
-
+	margin: auto;
 }
 
 .arc text {
