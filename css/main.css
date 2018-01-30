@@ -17,11 +17,11 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-	font-size: 60px;
+	font-size: 75px;
 	font-weight: 600;
 	margin-top: 0px;
 	margin-bottom: 20px;
-	color: #BF1313;
+	color: white;
 }
 
 h2 {
