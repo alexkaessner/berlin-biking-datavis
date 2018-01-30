@@ -10,7 +10,6 @@ body, div, p, h3, h4 {
 
 h1, h2 {
 	font-family: 'Vollkorn', serif;
-	color: #980000;
 }
 
 h1, h2, h3, h4 {
@@ -20,8 +19,9 @@ h1, h2, h3, h4 {
 h1 {
 	font-size: 60px;
 	font-weight: 600;
-	margin-top: 100px;
+	margin-top: 0px;
 	margin-bottom: 20px;
+	color: #BF1313;
 }
 
 h2 {
@@ -29,6 +29,7 @@ h2 {
 	font-weight: 600;
 	padding-bottom: 30px;
 	margin-bottom: 30px;
+	color: #980000;
 }
 
 h2::after {
@@ -110,6 +111,44 @@ h5 {
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++ INTRO ++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.header {
+	background-color: #0A0A0A;
+}
+
+.header .container h3, .header .container div {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.header .container {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 80px;
+	padding-bottom: 10px;
+}
+
+.hero-image {
+	position: relative;
+	display: block;
+}
+
+.hero-image img {
+	width: 100%;
+	height: auto;
+}
+
+.gradient-image-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 50%;
+	background-image: linear-gradient(0deg, rgba(10,10,10,0.00) 0%, #0A0A0A 100%);
+	z-index: 1000;
+	pointer-events: none;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .bike-paths-container {
