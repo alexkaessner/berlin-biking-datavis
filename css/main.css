@@ -299,27 +299,56 @@ h5 {
 	border-radius: 5px;
 }
 
+.legend-line {
+	width: 10px;
+	height: 2px;
+	margin-left: 30px;
+	margin-right: 5px;
+	margin-bottom: 4px;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++ SECURITY SCROLLYTELLING ++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.map-legend {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 250px;
+	padding: 16px;
+
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	border-radius: 6px;
+	z-index: 1100;
+}
+
+.map-legend .legend-dot, .map-legend .legend-line {
+	display: inline-block;
+	margin-left: 0;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 #bike-security-container {
 	position: relative;
 	display: block;
-	background-color: #262522;
+	background-color: #0A0A0A;
 }
 
 #bike-security-container .row {
 	margin-right: 0;
+	margin-left: 0;
 }
 
 .gradient-map-overlay {
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 50%;
+	width: 20%;
 	height: 100%;
-	background-image: linear-gradient(-90deg, rgba(38,37,34,0.00) 0%, #262522 100%);
+	background-image: linear-gradient(-90deg, rgba(10,10,10,0.00) 0%, #0A0A0A 100%);
 	z-index: 1000;
 	pointer-events: none;
 }
@@ -354,15 +383,8 @@ h5 {
 }
 
 .step {
-	margin: 2rem auto;
-}
-
-.step p {
+	padding-top: 50%;
 	color: white;
-	padding: 1rem;
-	-moz-transform: translateY(100%);
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -380,4 +402,12 @@ height: 100%;
 width: 100%;
 display: block;
 
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++ VISION AND CONTRIBUTE +++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.jumbotron {
+	padding: 2rem 2rem;
 }
