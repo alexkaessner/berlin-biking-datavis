@@ -129,7 +129,7 @@ function setPopupsHover() {
 bikePathsMapLayer.on('featureOver', featureEvent => {
   let content = '';
   content += `<div class="wrapper">`;
-  content += `<h4>${featureEvent.data.rva_typ.toUpperCase()}</h4>`;
+  //content += `<h4>${featureEvent.data.rva_typ.toUpperCase()}</h4>`;
   content += `<p>${featureEvent.data.stst_str} <small></small></p>`;
   content += `</div>`;
   document.getElementById('content').innerHTML = content;
