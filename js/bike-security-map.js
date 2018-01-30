@@ -139,7 +139,7 @@ const securityMapStyle0 = new carto.style.CartoCSS(`
 	#layer {
 	  line-width: 1.5;
 	  line-color: #78D19C;
-	  line-opacity: 0.3;
+	  line-opacity: 0.4;
 	}
 `);
 
