@@ -1,19 +1,19 @@
 var data = [
     {
         "str_lab": "Cycle Tracks/Paths",
-        "num": 100,
+        "num": 214,
         "info": "Bike paths are dedicated lanes seperated from the road. Usually bike paths are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
         "image": 'graphics/bikepath-types/radweg.svg'
     },
     {
         "str_lab": "Bike Lanes",
-        "num": 44,
+        "num": 70,
         "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.",
         "image": 'graphics/bikepath-types/radfahrstreifen.svg'
     },
     {
         "str_lab": "Advisory Bike Lanes",
-        "num": 215,
+        "num": 100,
         "info": "The bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
         "image": 'graphics/bikepath-types/schutzstreifen.svg'
     },
@@ -90,7 +90,7 @@ var pattern = defs.append('pattern')
     .attr('width', width)
     .attr('height', height);
 
-var imageRadius = radius * 0.45;
+var imageRadius = radius * 0.49; //0.45
 var image = pattern.append('image').attr('x', width / 2 - imageRadius).attr('y', height / 2 - imageRadius).attr('width', 1.95 * imageRadius)
     .attr('height', 1.95 * imageRadius);
 

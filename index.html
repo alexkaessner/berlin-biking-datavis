@@ -99,7 +99,7 @@
 					<div id="mainTooltip" class="hidden">
 				  	<p><span id="value"></span></p>
 				</div>
-				<span id="centerTooltip" class="hidden">
+				<span id="centerTooltip" class="hidden"></span>
 					<div class="text-center legend">
 						<div><div class="legend-dot" style="background-color: #3E0A51;"></div>Cycle Tracks/Paths</div>
 						<div><div class="legend-dot" style="background-color: #3F678B;"></div>Advisory Bike Lanes</div>
@@ -116,24 +116,24 @@
 				<div id="controls">
 				  <ul>
 				    <li onclick="setAll()">
-				      <input type="radio" name="style" value="01" checked  id="Radverkehrsanlagen">
-				    <label for="Radverkehrsanlagen">Radverkehrsanlagen</label>
+				      <input type="radio" name="style" value="01" checked  id="bike path types">
+				    <label for="bike path types">bike path types</label>
 				  </li>
 				    <li onclick="setRadwege()">
-				      <input type="radio" name="style" value="02" id="Radwege">
-				      <label for="Radwege">Radwege</label>
+				      <input type="radio" name="style" value="02" id="Cycle Tracks/Paths">
+				      <label for="Cycle Tracks/Paths">Cycle Tracks/Paths</label>
 				    </li>
 				    <li onclick="setSchutzstreifen()">
-				      <input type="radio" name="style" value="03" id="Schutzstreifen">
-				      <label for="Schutzstreifen">Schutzstreifen</label>
+				      <input type="radio" name="style" value="03" id="Advisory Bike Lanes">
+				      <label for="Advisory Bike Lanes">Advisory Bike Lanes</label>
 				    </li>
 				    <li onclick="setRadfahrstreifen()">
-				      <input type="radio" name="style" value="04" id="Radfahrstreifen">
-				      <label for="Radfahrstreifen">Radfahrstreifen</label>
+				      <input type="radio" name="style" value="04" id="Bike Lanes">
+				      <label for="Bike Lanes">Bike Lanes</label>
 				    </li>
 				    <li onclick="setBussonderfahrstreifen()">
-				      <input type="radio" name="style" value="05" id="Bussonderfahrstreifen">
-				      <label for="Bussonderfahrstreifen">Bussonderfahrstreifen</label>
+				      <input type="radio" name="style" value="05" id="Bus Lanes">
+				      <label for="Bus Lanes">Bus Lanes</label>
 				    </li>
 				  </ul>
 				</div>
@@ -305,6 +305,10 @@ The times for bicycle thieves are to be harder in Berlin due to the case numbers
 			<!-- bike-theft-chart -->
 			<div class="container">
 				<!--<div id="bike-theft-chart"></div> -->
+				<div class="text-center legend">
+					<div><div class="legend-dot" style="background-color: #ff0000;"></div>raid cases</div>
+					<div><div class="legend-dot" style="background-color: #1463d9;"></div>enlightened cases</div>
+				</div>
 				<canvas id="bike-theft-diagram" ></canvas>
 			</div>
 

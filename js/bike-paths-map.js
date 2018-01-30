@@ -6,7 +6,7 @@ var bikePathsMap = L.map('bike-paths-map', {
   scrollWheelZoom: false
 });
 
-L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
   maxZoom: 18
 }).addTo(bikePathsMap);
 
@@ -24,7 +24,7 @@ const bikePathsMapSource = new carto.source.SQL(`
 const bikePathsMapStyle = new carto.style.CartoCSS(`
   #layer {
     line-width: 2.5;
-    line-color: ramp([rva_typ], ("#3E0A51", "#3F678B", "#4B9064", "#ffd460", "#FCD016"), ("Cycle Tracks/Paths", "Advisory Bike Lanes", "Bike Lanes", "Bus Lanes",  ), '=');
+    line-color: ramp([rva_typ], ("#3E0A51", "#3F678B", "#4B9064", "#FCD016", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen",  ), '=');
   }
 `);
 
