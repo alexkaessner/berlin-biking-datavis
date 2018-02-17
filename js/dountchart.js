@@ -33,7 +33,7 @@ var divNode = d3.select("body").node();
 var outerRadius = height / 2 - 9;
 
 var color = d3.scaleOrdinal()
-    .range(["#3E0A51","#4B9064","#3F678B", '#FCD016']);
+    .range(["#4BA27C","#4469A7","#764189", '#D54E75']);
 
 var arc = d3.arc()
     .padRadius(outerRadius)

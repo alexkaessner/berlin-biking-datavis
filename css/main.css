@@ -340,11 +340,13 @@ h5 {
 }
 
 .legend-line {
-	width: 10px;
-	height: 2px;
-	margin-left: 30px;
+	display: inherit;
+	width: 12px;
+	height: 3px;
+	margin-left: 0px;
 	margin-right: 5px;
 	margin-bottom: 4px;
+	border-radius: 1.5px;
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

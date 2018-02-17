@@ -23,15 +23,15 @@ const bikePathsMapSource = new carto.source.SQL(`
 
 const bikePathsMapStyle = new carto.style.CartoCSS(`
   #layer {
-    line-width: 2.5;
-    line-color: ramp([rva_typ], ("#3E0A51", "#3F678B", "#4B9064", "#FCD016", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen",  ), '=');
+    line-width: 2;
+    line-color: ramp([rva_typ], ("#4BA27C", "#764189", "#4469A7", "#D54E75", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen",  ), '=');
   }
 `);
 
 //const layer = new carto.layer.Layer(source, style);
 
 const bikePathsMapLayer = new carto.layer.Layer(bikePathsMapSource, bikePathsMapStyle, {
-  featureOverColumns: ['rva_typ', 'stst_str']
+  featureOverColumns: ['rva_typ', 'stst_str', 'sorvt_typ']
 });
 
 /*
@@ -129,8 +129,12 @@ function setPopupsHover() {
 bikePathsMapLayer.on('featureOver', featureEvent => {
   let content = '';
   content += `<div class="wrapper">`;
-  //content += `<h4>${featureEvent.data.rva_typ.toUpperCase()}</h4>`;
-  content += `<p>${featureEvent.data.stst_str} <small></small></p>`;
+  content += '<small>Street</small>';
+  content += `<p>${featureEvent.data.stst_str}</p>`;
+  content += '<small>Category</small>';
+  content += `<p>${featureEvent.data.rva_typ}</p>`;
+  content += '<small>Type</small>';
+  content += `<p>${featureEvent.data.sorvt_typ}</p>`;
   content += `</div>`;
   document.getElementById('content').innerHTML = content;
 });
