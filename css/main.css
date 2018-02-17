@@ -448,10 +448,17 @@ display: block;
 /* ++++++++++++++++++++++++ VISION AND CONTRIBUTE +++++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.jumbotron {
-	padding: 2rem 2rem;
+#contribute .rounded {
+	border-bottom-right-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
 }
 
-.jumbotron .btn {
+#contribute .jumbotron {
+	padding: 2rem 2rem;
+	border-top-right-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+}
+
+#contribute .jumbotron .btn {
 	margin: 8px 0px;
 }
