@@ -2,7 +2,7 @@ var data = [
     {
         "str_lab": "Cycle Tracks/Paths",
         "num": 214,
-        "info": "Cycle tracks are dedicated lanes seperated from the road. Usually cycle tracks are located on the sidewalk. They are either shared with pedestrians, seperated trough painted marks, structurally differentiated or seperated.",
+        "info": "Cycle tracks are dedicated lanes separated from the road. Usually cycle tracks are located on the sidewalk. They are either shared with pedestrians, separated trough painted marks, structurally differentiated or separated.",
         "image": 'graphics/bikepath-types/radweg.svg'
     },
     {
