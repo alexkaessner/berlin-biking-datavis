@@ -40,9 +40,19 @@ function handleStepEnter(response) {
 	if (response.index == 0) {
     // reset to initial position
 		securityMap.flyTo([52.516369, 13.380871], 12);
+
+		bikePathsMapSource.setQuery(`
+	    SELECT *
+	      FROM berlin_radverkehrsanlagen_2
+	      WHERE rva_typ = \'Radwege\'
+	  `);
+
+		securityMapClient.removeLayer(securityMapLayer2);
 	}
   if (response.index == 1) {
 		securityMap.flyTo([52.516369, 13.380871], 12);
+
+		securityMapClient.addLayer(securityMapLayer2);
 	}
   if (response.index == 2) {
 		securityMap.flyTo([52.549479, 13.413720], 16);
