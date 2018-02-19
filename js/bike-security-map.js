@@ -41,12 +41,6 @@ function handleStepEnter(response) {
     // reset to initial position
 		securityMap.flyTo([52.516369, 13.380871], 12);
 
-		bikePathsMapSource.setQuery(`
-	    SELECT *
-	      FROM berlin_radverkehrsanlagen_2
-	      WHERE rva_typ = \'Radwege\'
-	  `);
-
 		securityMapClient.removeLayer(securityMapLayer2);
 	}
   if (response.index == 1) {
@@ -203,5 +197,5 @@ const securityMapLayer2 = new carto.layer.Layer(securityMapSource2, securityMapS
 // load maps at last!
 securityMapClient.addLayer(securityMapLayer0);
 securityMapClient.addLayer(securityMapLayer1);
-securityMapClient.addLayer(securityMapLayer2);
+//securityMapClient.addLayer(securityMapLayer2);
 securityMapClient.getLeafletLayer().addTo(securityMap);
