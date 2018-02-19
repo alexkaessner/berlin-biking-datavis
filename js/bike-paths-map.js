@@ -28,21 +28,15 @@ const bikePathsMapStyle = new carto.style.CartoCSS(`
   }
 `);
 
-//const layer = new carto.layer.Layer(source, style);
-
 const bikePathsMapLayer = new carto.layer.Layer(bikePathsMapSource, bikePathsMapStyle, {
   featureOverColumns: ['rva_typ', 'stst_str', 'sorvt_typ']
 });
 
-/*
-const populatedPlacesLayer = new carto.layer.Layer(populatedPlacesSource, populatedPlacesStyle, {
-featureOverColumns: ['name', 'pop_max', 'pop_min']
-});
-*/
-
 bikePathsMapClient.addLayer(bikePathsMapLayer);
 bikePathsMapClient.getLeafletLayer().addTo(bikePathsMap);
 
+
+/* button actions */
 function setAll() {
   bikePathsMapSource.setQuery(`
       SELECT * FROM berlin_radverkehrsanlagen_2
@@ -83,49 +77,6 @@ function setBussonderfahrstreifen() {
 
 /* pop-ups */
 /* to create pop-up information windows and interact with your map */
-const popup = L.popup({ closeButton: false });
-
-function openPopup(featureEvent) {
-  popup.setLatLng(featureEvent.latLng);
-  if (!popup.isOpen()) {
-    let content = '';
-    content += `<div class="popup-wrapper">`;
-    if (featureEvent.data.name) {
-      content += `<h2>${featureEvent.data.name}</h2>`;
-    }
-    if (featureEvent.data.pop_max || featureEvent.data.pop_min) {
-      content += `<ul>`;
-      if (featureEvent.data.pop_max) {
-        content += `<li><h3>Max:</h3> <h4>${featureEvent.data.pop_max}</h4></li>`;
-      }
-      if (featureEvent.data.pop_min) {
-        content += `<li><h3>Min:</h3> <h4>${featureEvent.data.pop_min}<h4></li>`;
-      }
-      content += `</ul>`;
-    }
-    content += `</div>`;
-    popup.setContent(content);
-    popup.openOn(bikePathsMap);
-  }
-}
-
-function closePopup(featureEvent) {
-  popup.removeFrom(bikePathsMap);
-}
-
-function setPopupsClick() {
-  populatedPlacesLayer.off('featureOver');
-  populatedPlacesLayer.off('featureOut');
-  populatedPlacesLayer.on('featureClicked', openPopup);
-}
-
-function setPopupsHover() {
-  populatedPlacesLayer.off('featureClicked');
-  populatedPlacesLayer.on('featureOver', openPopup);
-  populatedPlacesLayer.on('featureOut', closePopup);
-}
-
-
 bikePathsMapLayer.on('featureOver', featureEvent => {
   let rva_typ = '';
   let content = '';
