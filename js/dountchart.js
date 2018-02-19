@@ -160,6 +160,7 @@ var g = g.selectAll(".arc")
         })
 
       .on("mouseout", function(d){
+          //d3.select('pattern image').remove();
           d3.select(this)
               .attr("stroke","none")
               .style("filter","none");
