@@ -127,12 +127,31 @@ function setPopupsHover() {
 
 
 bikePathsMapLayer.on('featureOver', featureEvent => {
+  let rva_typ = '';
   let content = '';
   content += `<div class="wrapper">`;
   content += '<small>Street</small>';
   content += `<p>${featureEvent.data.stst_str}</p>`;
+
   content += '<small>Category</small>';
-  content += `<p>${featureEvent.data.rva_typ}</p>`;
+  switch (featureEvent.data.rva_typ) {
+    case 'Radwege':
+      rva_typ = 'Cycle Tracks/Paths';
+      break;
+    case 'Schutzstreifen':
+      rva_typ = 'Advisory Bike Lanes';
+      break;
+    case 'Radfahrstreifen':
+      rva_typ = 'Bike Lanes';
+      break;
+    case 'Bussonderfahrstreifen':
+      rva_typ = 'Bus Lanes';
+      break;
+    default:
+      rva_typ = 'unknown';
+  }
+  content += `<p>${rva_typ}</p>`;
+
   content += '<small>Type</small>';
   content += `<p>${featureEvent.data.sorvt_typ}</p>`;
   content += `</div>`;
