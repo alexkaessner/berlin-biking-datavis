@@ -139,23 +139,26 @@ var g = g.selectAll(".arc")
               .html("<h5>" + d.data.str_lab + "</h5>" + "<p>" + d.data.info + "</p>");
 
           d3.select("#mainTooltip").classed("hidden", false);
-        d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
+          d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
 
-            tooltipCenter.transition()
+          /*  tooltipCenter.transition()
                 .duration(0)
                 .style("opacity", .9);
-            //tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
+            tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
+            */
         })
 
 
         .on("mouseover", function(d) {
-          d3.select('pattern image')
-            .attr('xlink:href', d.data.image);
-          svg.select('circle.image')
-            .attr('fill', 'url(#image)')
+          //d3.select('pattern image')
+          //  .attr('xlink:href', d.data.image);
+          //svg.select('circle.image')
+          //  .attr('fill', 'url(#image)')
+          defaultMsg.remove();
+            centerImg.attr('xlink:href', d.data.image)
 
         })
 
@@ -175,6 +178,8 @@ var g = g.selectAll(".arc")
           var i = d3.interpolate(d.outerRadius, outerRadius  - 10);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
+
+        centerImg.attr('xlink:href', "");
       })
 
       .on("click", function() {
@@ -193,8 +198,16 @@ var g = g.selectAll(".arc")
 
       //centerCircle
       var centerSvg = d3.select("#mainPie svg").append('circle')
-        .attr('class', 'image')
+        //.attr('class', 'image')
         .attr('fill','white')
-        //.attr('xlink:href', 'graphics/bikepath-types/radfahrstreifen.svg');
+        //.attr('r', imageRadius)
+        //.attr('cx', width / 2).attr('cy', height / 2);
+        var defaultMsg = svg.append("text").attr('cx', -5);
+        defaultMsg.append("tspan")
+          //.attr('cx', 0)
+          //.attr('dy', '0.6em')
+        //  .text('hover over');
+
+        var centerImg = svg.append('image')
         .attr('r', imageRadius)
-.attr('cx', width / 2).attr('cy', height / 2)
+        .attr('cx', width / 2).attr('cy', height / 2);
