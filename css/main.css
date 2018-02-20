@@ -80,6 +80,10 @@ h5 {
   padding-right: 8px;
 }
 
+.hidden {
+	display: none;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .navbar {
@@ -304,14 +308,13 @@ h5 {
 	margin: auto;
 	width: 700px;
 }
+
 .tooltip-styles {
 	font-size: 20px;
 		font-weight: 600;
 }
+
 #mainTooltip {
-
-
-
 	position: absolute;
 	width :297px;
 	height: auto;
@@ -321,32 +324,20 @@ h5 {
 	padding-left: 14px;
 	padding-right: 14px;
 	padding-top: 10px;
-	/*padding: 0 25px 25px 25px;*/
-	background-color: rgba(0,0,0,0.9);
+	background-color: rgba(0,0,0,0.8);
 	pointer-events: none;
 	color: #fff;
 	text-align: left;
-
+	-webkit-backdrop-filter: blur(10px);
 }
+
 #mainTooltip:before {
 	border: solid;
 	border-color: rgba(0,0,0,0.9) transparent;
 	border-width: 10px 10px 0 10px;
 	display: inline-block;
-
-
-
-	/*left: 50%;*/
-
 	position: absolute;
-
 }
-#mainTooltip.hidden {
-	display: none;
-}
-
-
-
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
@@ -365,6 +356,22 @@ h5 {
 
 #morgenpost-chart .area {
   fill: url(#morgenpost-gradient);
+}
+
+#accidentdamage-chart {
+	position: relative;
+}
+
+#accidentdamage-tooltip {
+	position: absolute;
+	min-width: 185px;
+	border-radius: 6px;
+	padding: 10px 14px;
+	background-color: rgba(0,0,0,0.8);
+	pointer-events: none;
+	color: #fff;
+	text-align: left;
+	-webkit-backdrop-filter: blur(10px);
 }
 
 .legend div {
