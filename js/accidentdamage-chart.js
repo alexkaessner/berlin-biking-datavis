@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var AD_margin = {top: 0, right: 10, bottom: 20, left: 52},
+var AD_margin = {top: 0, right: 10, bottom: 20, left: 57},
     AD_width = 670 - AD_margin.left - AD_margin.right,
     AD_height = 300 - AD_margin.top - AD_margin.bottom;
 
@@ -12,7 +12,7 @@ var AD_x = d3.scaleLinear()
 		.rangeRound([0, AD_width]);
 
 var AD_z = d3.scaleOrdinal()
-		.range(["#98abc5", "#6b486b", "#ff8c00"]);
+		.range(["#98abc5", "#6b486b", "#ff8c00", "#ffffff"]);
 
 // basic SVG setup
 var AD_svg = d3.select("#accidentdamage-chart").append("svg")
@@ -47,14 +47,20 @@ d3.csv("../data/accidentdamage-chart.csv", function(d, i, columns) {
       .attr("x", function(d) { return AD_x(d[0]); })
       .attr("width", function(d) { return AD_x(d[1]) - AD_x(d[0]); })
       .attr("height", AD_y.bandwidth())
-      .on("mouseover", function() { AD_tooltip.attr("class", "visible"); })
-      .on("mouseout", function() { AD_tooltip.attr("class", "hidden"); })
+      .on("mouseover", function(d, i, node) {
+        AD_tooltip.attr("class", "visible");
+        d3.select(".y-axis").selectAll("g").select("text").filter(function (d, i2) { return i2 === i; }).attr("font-weight", "bold");
+      })
+      .on("mouseout", function(d, i, node) {
+        AD_tooltip.attr("class", "hidden");
+        d3.select(".y-axis").selectAll("g").select("text").attr("font-weight", "normal");
+      })
       .on("mousemove", function(d, i, node) {
-        var xPosition = d3.mouse(this)[0] + 80;
+        var xPosition = d3.mouse(this)[0] + 70;
         var yPosition = d3.mouse(this)[1];
         AD_tooltip.style("left", xPosition + "px");
         AD_tooltip.style("top", yPosition + "px");
-        AD_tooltip.html("dead: <b>" + data[i].dead + "</b><br/>" + "seriously injured: <b>" + data[i].seriously_injured + "</b><br/>" + "slightly injured: <b>" + data[i].slightly_injured + "</b><br/>" + "total: <b>" + data[i].total + "</b>");
+        AD_tooltip.html("dead: <b>" + data[i].dead + "</b><br/>" + "seriously injured: <b>" + data[i].seriously_injured + "</b><br/>" + "slightly injured: <b>" + data[i].slightly_injured + "</b><br/>" + "total: <b>" + (data[i].total - data[i].difference_to_highest_total) + "</b>");
       });
 
 	AD_svg.append("g")
