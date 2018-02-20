@@ -7,7 +7,8 @@ var bikePathsMap = L.map('bike-paths-map', {
 });
 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-  maxZoom: 18
+  maxZoom: 18,
+  attribution: 'Source: <a href="https://daten.berlin.de/datensaetze/radverkehrsanlagen-wms">Berlin Open Data - Berlin.de</a>'
 }).addTo(bikePathsMap);
 
 const bikePathsMapClient = new carto.Client({

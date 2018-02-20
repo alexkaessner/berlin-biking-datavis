@@ -121,7 +121,8 @@ L.control.zoom({
 }).addTo(securityMap);
 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-  maxZoom: 18
+  maxZoom: 18,
+  attribution: 'Sources: <a href="https://daten.berlin.de/datensaetze/radverkehrsanlagen-wms">Berlin Open Data</a> (bike paths), <a href="https://stefanwehrmeyer.carto.com/viz/5eae5a82-366a-11e7-a26a-0e233c30368f/public_map">Stefan Wehrmeyer</a> (bike accident spots), <a href="https://web.archive.org/web/20150926032822/https://radsicherheit.berlin.de/">Online-Dialog Berlin</a> (subjective hot spots)'
 }).addTo(securityMap);
 
 const securityMapClient = new carto.Client({
