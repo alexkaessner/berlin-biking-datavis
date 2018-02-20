@@ -199,3 +199,17 @@ securityMapClient.addLayer(securityMapLayer0);
 securityMapClient.addLayer(securityMapLayer1);
 //securityMapClient.addLayer(securityMapLayer2);
 securityMapClient.getLeafletLayer().addTo(securityMap);
+
+/* pop-up */
+securityMapLayer1.on('featureOver', featureEvent => {
+  let content2 = '';
+  content2 += `<div class="wrapper">`;
+  content2 += `<small>Accidents in 2016</small>`;
+  content2 += `<p>${featureEvent.data.count}</p>`;
+  content2 += `</div>`;
+  document.getElementById('bike-security-pop-up').innerHTML = content2;
+});
+
+securityMapLayer1.on('featureOut', featureEvent => {
+  document.getElementById('bike-security-pop-up').innerHTML = '';
+});

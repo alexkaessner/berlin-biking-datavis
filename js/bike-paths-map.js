@@ -24,7 +24,7 @@ const bikePathsMapSource = new carto.source.SQL(`
 const bikePathsMapStyle = new carto.style.CartoCSS(`
   #layer {
     line-width: 2;
-    line-color: ramp([rva_typ], ("#4BA27C", "#764189", "#4469A7", "#D54E75", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen",  ), '=');
+    line-color: ramp([rva_typ], ("#4BA27C", "#764189", "#4469A7", "#D54E75", "#f0f0f0"), ("Radwege", "Schutzstreifen", "Radfahrstreifen", "Bussonderfahrstreifen"));
   }
 `);
 
@@ -106,9 +106,11 @@ bikePathsMapLayer.on('featureOver', featureEvent => {
   content += '<small>Type</small>';
   content += `<p>${featureEvent.data.sorvt_typ}</p>`;
   content += `</div>`;
-  document.getElementById('content').innerHTML = content;
+  document.getElementById('bike-paths-pop-up').innerHTML = content;
 });
 
 bikePathsMapLayer.on('featureOut', featureEvent => {
-  document.getElementById('content').innerHTML = '';
+  content = '<div class="wrapper"><small>Hover over a line to get more information about a path.</small></div>';
+
+  document.getElementById('bike-paths-pop-up').innerHTML = content;
 });
