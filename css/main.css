@@ -194,6 +194,13 @@ h5 {
 	height: 600px;
 }
 
+.bikeroute-map-container {
+	position: relative;
+	display: block;
+	height: 600px;
+}
+
+
 #controls {
 	position: absolute;
   padding: 20px;
@@ -245,8 +252,10 @@ h5 {
 }
 
 #bikeroute-map-pop-up {
-	  top: 140px;
+	  top: 16px;
 }
+
+
 
 .pop-up {
   position: absolute;
