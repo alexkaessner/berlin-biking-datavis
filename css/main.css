@@ -82,6 +82,39 @@ h5 {
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+.navbar {
+	justify-content: flex-start;
+}
+
+.bg-dark {
+	background-color: #0A0A0A !important;
+}
+
+.navbar-links {
+	margin: auto;
+	display: inherit;
+}
+
+.nav-link {
+	width: 4px;
+	height: 4px;
+	background-color: white;
+	padding: 0;
+	margin: 4px 8px;
+	border-radius: 2px;
+	opacity: 0.5;
+}
+
+.nav-link.active {
+	width: 8px;
+	height: 8px;
+	margin: 2px 8px;
+	border-radius: 4px;
+	opacity: 1;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
 .article-copyright {
 	margin: 40px 0px;
 }

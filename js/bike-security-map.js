@@ -21,7 +21,7 @@ function handleResize() {
 
 	graphic
 		.style('width', bodyWidth + 'px')
-		.style('height', window.innerHeight + 'px');
+		.style('height', (window.innerHeight-28) + 'px'); // substracting the height of the navbar
 
 	// 3. tell scrollama to update new element dimensions
 	scroller.resize();
