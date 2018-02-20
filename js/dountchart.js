@@ -153,7 +153,9 @@ var g = g.selectAll(".arc")
 
         .on("mouseout", function(d){
           d3.select('pattern image').attr('xlink:href', null);
-          d3.select('#centerTooltip').html('');
+          d3.select('#centerTooltip').html("<small>"+'Hover over to get information' + "<br /> " + 'about a bike path types.'+"</small>");
+
+          //d3.select('#centerTooltip').html('');
           svg.select('circle.image').attr('fill', 'white');
           d3.select(this)
             .attr("stroke","none")
