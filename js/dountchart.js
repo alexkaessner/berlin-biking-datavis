@@ -25,7 +25,6 @@ var data = [
     }
 ];
 
- var totalCount = 112;
 var width = 600,
     height = 600,
     radius = Math.min(width, height) / 2;
@@ -110,12 +109,7 @@ var g = g.selectAll(".arc")
       .each(function(d) { d.outerRadius = outerRadius - 10; })
       .on("mousemove", function(d) {
           d3.select(this)
-              //.transition()
-              // .duration(200)
-              // .attr("d", arcOver);
-
-
-              .style("filter", "url(#drop-shadow)");
+            .style("filter", "url(#drop-shadow)");
           d3.select(this)
             .transition()
             .duration(500)
@@ -126,9 +120,8 @@ var g = g.selectAll(".arc")
               var x = Math.sin(d.midAngle) * dist;
               var y = Math.cos(d.midAngle) * dist;
               return 'translate(' + x + ',' + y + ')';
-
-
             });
+
             var mousePos = d3.mouse(divNode);
 
             d3.select("#mainTooltip")
@@ -143,12 +136,7 @@ var g = g.selectAll(".arc")
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
-/*
-            tooltipCenter.transition()
-                .duration(0)
-                .style("opacity", .9);
-            tooltipCenter.html(d.data.str_lab + "<br />" + d.data.num);
-*/
+
         })
 
 
@@ -160,11 +148,7 @@ var g = g.selectAll(".arc")
             .attr('fill', 'url(#image)');
 
           d3.select("#centerTooltip")
-            .classed("hidden", false)
-            /*
-            defaultMsg.remove();
-            centerImg.attr('xlink:href', d.data.image)
-            */
+            .classed("hidden", false);
         })
 
         .on("mouseout", function(d){
@@ -186,8 +170,6 @@ var g = g.selectAll(".arc")
           return function(t) { d.outerRadius = i(t); return arc(d); };
 
         });
-
-            //centerImg.attr('xlink:href', '');
         })
 
       .on("click", function() {
@@ -196,6 +178,7 @@ var g = g.selectAll(".arc")
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
       })
+
       .on("dblclick", function() {
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           var i = d3.interpolate(d.outerRadius, outerRadius  - 10);
@@ -215,15 +198,3 @@ var g = g.selectAll(".arc")
         d3.select("#centerTooltip")
           .classed("hidden", false)
           .html("<small>"+'Hover over to get information' + "<br /> " + 'about a bike path types.'+"</small>");
-
-/*
-        var defaultMsg = svg.append("text").attr('cx', -5);
-        defaultMsg.append("tspan")
-          //.attr('cx', 0)
-          //.attr('dy', '0.6em')
-        //  .text('hover over');
-
-        var centerImg = svg.append('image')
-        .attr('r', imageRadius)
-
-*/
