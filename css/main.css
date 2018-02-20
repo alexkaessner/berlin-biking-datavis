@@ -297,8 +297,11 @@ h5 {
 }
 
 #centerTooltip {
-	margin-left:395px;
-	margin-top:-175px;
+	position: relative;
+	left:250px;
+	top: -330px;
+	color: #4D4D4D;
+
 	pointer-events: none;
 	z-index: 10000;
 

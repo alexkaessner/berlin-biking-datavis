@@ -25,7 +25,7 @@ var data = [
     }
 ];
 
-
+ var totalCount = 112;
 var width = 600,
     height = 600,
     radius = Math.min(width, height) / 2;
@@ -153,8 +153,8 @@ var g = g.selectAll(".arc")
 
 
         .on("mouseover", function(d) {
+          d3.select('#centerTooltip').html('');
           d3.select('pattern image')
-            //.attr('id', centerImg)
             .attr('xlink:href', d.data.image);
           svg.select('circle.image')
             .attr('fill', 'url(#image)');
@@ -169,6 +169,7 @@ var g = g.selectAll(".arc")
 
         .on("mouseout", function(d){
           d3.select('pattern image').attr('xlink:href', null);
+          d3.select('#centerTooltip').html('');
           svg.select('circle.image').attr('fill', 'white');
           d3.select(this)
             .attr("stroke","none")
@@ -210,6 +211,10 @@ var g = g.selectAll(".arc")
         .attr('r', imageRadius)
         .attr('cx', width / 2)
         .attr('cy', height / 2);
+
+        d3.select("#centerTooltip")
+          .classed("hidden", false)
+          .html("<small>"+'Hover over to get information' + "<br /> " + 'about a bike path types.'+"</small>");
 
 /*
         var defaultMsg = svg.append("text").attr('cx', -5);
