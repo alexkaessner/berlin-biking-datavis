@@ -108,85 +108,66 @@ var g = g.selectAll(".arc")
       .style("fill", function(d) { return color(d.data.num); })
       .each(function(d) { d.outerRadius = outerRadius - 10; })
       .on("mousemove", function(d) {
-          d3.select(this)
-            .style("filter", "url(#drop-shadow)");
-          d3.select(this)
-            .transition()
-            .duration(500)
-            .ease(d3.easeBounce)
-            .attr('transform',function(d){
-              var dist = 1;
-              d.midAngle = ((d.endAngle - d.startAngle)/2) + d.startAngle;
-              var x = Math.sin(d.midAngle) * dist;
-              var y = Math.cos(d.midAngle) * dist;
-              return 'translate(' + x + ',' + y + ')';
-            });
+        var mousePos = d3.mouse(divNode);
 
-            var mousePos = d3.mouse(divNode);
+        d3.select("#mainTooltip")
+          .style("left", mousePos[0] + 20 + "px")
+          .style("top", mousePos[1] - 50 + "px")
+          .select("#value")
+          //.attr("text-anchor", "middle")
+          .html("<h5>" + d.data.str_lab + "</h5>" + "<p>" + d.data.info + "</p>");
+      })
+      .on("mouseover", function(d) {
+        d3.select(this)
+          .style("filter", "url(#drop-shadow)");
+        d3.select(this)
+          .transition()
+          .duration(500)
+          .ease(d3.easeBounce)
+          .attr('transform',function(d){
+            var dist = 1;
+            d.midAngle = ((d.endAngle - d.startAngle)/2) + d.startAngle;
+            var x = Math.sin(d.midAngle) * dist;
+            var y = Math.cos(d.midAngle) * dist;
+            return 'translate(' + x + ',' + y + ')';
+          })
 
-            d3.select("#mainTooltip")
-              .style("left", mousePos[0] + 20 + "px")
-              .style("top", mousePos[1] - 50 + "px")
-              .select("#value")
-              //.attr("text-anchor", "middle")
-              .html("<h5>" + d.data.str_lab + "</h5>" + "<p>" + d.data.info + "</p>");
-
-          d3.select("#mainTooltip").classed("hidden", false);
-          d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
-          var i = d3.interpolate(d.outerRadius, outerRadius);
-          return function(t) { d.outerRadius = i(t); return arc(d); };
-        });
-
-        })
-
-
-        .on("mouseover", function(d) {
-          d3.select('#centerTooltip').html('');
-          d3.select('pattern image')
-            .attr('xlink:href', d.data.image);
-          svg.select('circle.image')
-            .attr('fill', 'url(#image)');
-
-          d3.select("#centerTooltip")
-            .classed("hidden", false);
-        })
-
-        .on("mouseout", function(d){
-          d3.select('pattern image').attr('xlink:href', null);
-          d3.select('#centerTooltip').html("<small>"+'Hover over to get information' + "<br /> " + 'about a bike path types.'+"</small>");
-
-          //d3.select('#centerTooltip').html('');
-          svg.select('circle.image').attr('fill', 'white');
-          d3.select(this)
-            .attr("stroke","none")
-            .style("filter","none");
-          d3.select(this)
-            .transition()
-            .duration(500)
-            .ease(d3.easeBounce)
-            .attr('transform','translate(0,0)');
-
-          d3.select("#mainTooltip").classed("hidden", true);
-          d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
-          var i = d3.interpolate(d.outerRadius, outerRadius  - 10);
-          return function(t) { d.outerRadius = i(t); return arc(d); };
-
-        });
-        })
-
-      .on("click", function() {
+        d3.select("#mainTooltip").classed("hidden", false);
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };
-        });
-      })
+        })
 
-      .on("dblclick", function() {
+        d3.select('#centerTooltip').html('');
+        d3.select('pattern image')
+          .attr('xlink:href', d.data.image);
+        svg.select('circle.image')
+          .attr('fill', 'url(#image)');
+
+        d3.select("#centerTooltip")
+          .classed("hidden", false);
+      })
+      .on("mouseout", function(d){
+        d3.select('pattern image').attr('xlink:href', null);
+        d3.select('#centerTooltip').html("<small>"+'Hover over to get information about a bike path types.'+"</small>");
+
+        //d3.select('#centerTooltip').html('');
+        svg.select('circle.image').attr('fill', 'white');
+        d3.select(this)
+          .attr("stroke","none")
+          .style("filter","none");
+        d3.select(this)
+          .transition()
+          .duration(500)
+          .ease(d3.easeBounce)
+          .attr('transform','translate(0,0)');
+
+        d3.select("#mainTooltip").classed("hidden", true);
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           var i = d3.interpolate(d.outerRadius, outerRadius  - 10);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });
-      })
+      });
 
 
       //centerCircle
@@ -199,4 +180,4 @@ var g = g.selectAll(".arc")
 
         d3.select("#centerTooltip")
           .classed("hidden", false)
-          .html("<small>"+'Hover over to get information' + "<br /> " + 'about a bike path types.'+"</small>");
+          .html("<small>"+'Hover over to get information about a bike path types.'+"</small>");
