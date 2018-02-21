@@ -60,7 +60,7 @@ d3.csv("../data/accidentdamage-chart.csv", function(d, i, columns) {
         var yPosition = d3.mouse(this)[1];
         AD_tooltip.style("left", xPosition + "px");
         AD_tooltip.style("top", yPosition + "px");
-        AD_tooltip.html("dead: <b>" + data[i].dead + "</b><br/>" + "seriously injured: <b>" + data[i].seriously_injured + "</b><br/>" + "slightly injured: <b>" + data[i].slightly_injured + "</b><br/>" + "total: <b>" + (data[i].total - data[i].difference_to_highest_total) + "</b>");
+        AD_tooltip.html("<h5>" + data[i].type + "</h5>dead: <b>" + data[i].dead + "</b><br/>" + "seriously injured: <b>" + data[i].seriously_injured + "</b><br/>" + "slightly injured: <b>" + data[i].slightly_injured + "</b><br/>" + "total: <b>" + (data[i].total - data[i].difference_to_highest_total) + "</b>");
       });
 
 	AD_svg.append("g")
