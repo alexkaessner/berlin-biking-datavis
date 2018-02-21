@@ -84,6 +84,17 @@ h5 {
 	display: none;
 }
 
+.quote {
+	font-family: 'Vollkorn', serif;
+	font-size: 30px;
+	font-style: italic;
+	font-weight: 600;
+	hanging-punctuation: first;
+
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .navbar {
