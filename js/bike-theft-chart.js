@@ -5,7 +5,7 @@ labels: ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015",
 datasets: [{
   label: 'aufgeklärte Fälle',
   data: [1032, 1288, 1259, 888, 1059, 1125, 1067, 1238, 1255, 1203],
-  backgroundColor: 'rgba(20, 99, 217, 0.7)',
+  backgroundColor: '#1463d9',
   // fill: 'rgba(20, 99, 217, 0.7)'
 }, {
   label: 'erfasste Fälle',
