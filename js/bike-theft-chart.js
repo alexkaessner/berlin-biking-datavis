@@ -59,7 +59,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         // use label callback to return the desired label
         label: function(tooltipItem, data) {
-          return tooltipItem.yLabel;
+          return '    ' +tooltipItem.yLabel;
         },
         // remove title
         title: function(tooltipItem, data) {
