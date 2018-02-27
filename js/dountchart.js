@@ -2,20 +2,20 @@ var data = [
     {
         "str_lab": "cycle tracks/paths",
         "num": 214,
-        "info": "Cycle tracks are dedicated lanes separated from the road. Usually cycle tracks are located on the sidewalk. They are either shared with pedestrians, separated trough painted marks, structurally differentiated or separated.",
+        "info": "Cycle tracks are dedicated lanes separated from the road. Usually cycle tracks are located on the sidewalk. They are either shared with pedestrians, separated trough painted marks, structurally differentiated or separated at all.",
         "image": 'graphics/bikepath-types/radweg.svg'
-    },
-    {
-        "str_lab": "bike lanes",
-        "num": 70,
-        "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.",
-        "image": 'graphics/bikepath-types/radfahrstreifen.svg'
     },
     {
         "str_lab": "advisory bike lanes",
         "num": 100,
         "info": "This bike lane is on the street and divided with a dashed line. Cars and busses are permitted to drive on the lane. Parking vehicles is not allowed.",
         "image": 'graphics/bikepath-types/schutzstreifen.svg'
+    },
+    {
+        "str_lab": "bike lanes",
+        "num": 70,
+        "info": "Bike lanes are on-road lanes marked with a solid line and a road sign. You have to use this lane as a bicyclist. Therefore all motorized traffic is excluded and not permitted to drive or park there.",
+        "image": 'graphics/bikepath-types/radfahrstreifen.svg'
     },
     {
         "str_lab": "bus lanes",
