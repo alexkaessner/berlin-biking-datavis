@@ -140,6 +140,15 @@ mark {
 	margin: 40px 0px;
 }
 
+.header a {
+	color: white;
+	text-decoration: none;
+}
+
+.header a:hover {
+	text-decoration: underline;
+}
+
 #bike-paths-map, #bike-security-map, #bikeroute-map {
   height: 100%;
 }
