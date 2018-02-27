@@ -88,8 +88,8 @@
 			<!-- ++++++++++++++++++++++++++++++ MAP ++++++++++++++++++++++++++++++ -->
 
 			<div>
-					<h4>Cycle network (including bike path types)</h4>
-					<p class="footnote text-center">Source: <a href="https://daten.berlin.de/datensaetze/radverkehrsanlagen-wms">Berlin Open Data - Berlin.de</a></p>
+				<h4>Cycle network (including bike path types)</h4>
+				<p class="footnote text-center">Source: <a href="https://daten.berlin.de/datensaetze/radverkehrsanlagen-wms">Berlin Open Data - Berlin.de</a></p>
 			</div>
 
 			<div class="container-fluid bike-paths-container">
@@ -130,7 +130,7 @@
 			<div id="biking-security" class="container">
 				<h2>How safe is bicycling in Berlin?</h2>
 				<p>
-					At first sight, Berlin has quite a lot of bike lanes and cycle tracks. Most of the existing cycle tracks are structurally separated, e.g. by different cobblestones. However,  there are still plenty of gaps in the cycle path network. For instance, huge parts of Neukölln and Mitte and are completely without bike paths. In fact, there is no district with a gapless system. In addition, it seems that especially the secondary roads of Berlin are disregarded.
+					At first sight, Berlin has quite a lot of bike lanes and cycle tracks. Most of the existing cycle tracks are structurally separated, e.g. by different cobblestones. However,  there are still plenty of gaps in the cycle path network. For instance, huge parts of Neukölln and Mitte and are completely without bike paths. In fact, there is no district with a gapless system. Additionally, it seems that especially the secondary roads of Berlin are disregarded.
 				</p>
 			</div>
 
@@ -153,7 +153,7 @@
 					The accident statistics clearly show that bicycling is a risky business in Berlin. Cyclists suffer from accidents by far the most of all traffic participants. <mark>In 2016 almost all of the 17 fatal bicycle accidents happened in consequence of collisions with trucks or cars. Mainly because the bicyclist was overlooked while turning.</mark><sup>[<a href="#sources">2</a>]</sup>
 				</p>
 				<p>
-					Besides all the accidents statistics, there are a lot of small and “almost” accidents which are not registered and therefore not countable. </br>
+					Besides all the accident statistics, there are a lot of small and “almost” accidents which are not registered and therefore not countable. </br>
 					But do bicyclists in Berlin actually also feel unsafe on the streets? </br>
 					The German newspaper “Berliner Morgenpost” created a survey about it. Over 1800 readers of an article about bike security took part.
 
@@ -163,7 +163,7 @@
 			<!-- morgenpost chart -->
 			<div class="container">
 				<h4>Has bicycling become more dangerous in Berlin?</h4>
-				<p class="footnote text-center">Source: <a href="https://www.morgenpost.de/berlin/article212826341/Vorfahrt-fuer-Radfahrer-in-Berlin.html">www.morgenpost.de</a>, 25.01.18</p>
+				<p class="footnote text-center">Source: <a href="https://www.morgenpost.de/berlin/article212826341/Vorfahrt-fuer-Radfahrer-in-Berlin.html">morgenpost.de</a>, 25.01.18</p>
 				<div id="morgenpost-chart"></div>
 				<div class="row">
 					<div class="col-4 text-left"><h5>26%</h5><b>No</b>, I still enjoy cycling in the city.</div>
@@ -181,6 +181,11 @@
 			<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 			<!-- ++++++++++++++++++++ SECURITY SCROLLYTELLING ++++++++++++++++++++ -->
 			<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+			<div>
+				<h4>Factual and subjective perceived danger</h4>
+				<p class="footnote text-center">Sources: <a href="https://daten.berlin.de/datensaetze/radverkehrsanlagen-wms">Berlin Open Data</a> (bike paths), <a href="https://stefanwehrmeyer.carto.com/viz/5eae5a82-366a-11e7-a26a-0e233c30368f/public_map">Stefan Wehrmeyer</a> (bike accident spots), <a href="https://web.archive.org/web/20150926032822/https://radsicherheit.berlin.de/">Online-Dialog Berlin</a> (subjective hot spots)</p>
+			</div>
 
 			<div id="bike-security-container" class="container-fluid">
 				<div id="accident-spots" class="row">
@@ -245,9 +250,13 @@
 							<div id="bike-security-map"></div>
 							<div class="gradient-map-overlay"></div>
 							<div class="map-legend">
-								<div><div class="legend-line" style="background-color: #78D19C;"></div>bike path (all types)</div>
-								<div><div class="legend-dot" style="background-color: #1463d9;"></div>subjective hot spots</div>
-								<div><div class="legend-dot" style="background-color: #ff0000;"></div>accident (size = number)</div>
+								<div class="legend-dot-special"><div class="legend-dot" style="width: 45px; height: 45px; border-radius: 22.5px; margin-left: 0;"></div>15-17 accidents</div>
+								<div class="legend-dot-special"><div class="legend-dot" style="width: 35px; height: 35px; border-radius: 17.5px; margin-left: 10px;"></div>11-14 accidents</div>
+								<div class="legend-dot-special"><div class="legend-dot" style="width: 25px; height: 25px; border-radius: 12.5px; margin-left: 20px;"></div>8-10 accidents</div>
+								<div class="legend-dot-special"><div class="legend-dot" style="width: 16px; height: 16px; border-radius: 8px; margin-left: 29px;"></div>5-7 accidents</div>
+								<div class="legend-dot-special"><div class="legend-dot" style="width: 6px; height: 6px; border-radius: 3px; margin-left: 39px;"></div>1-4 accidents</div>
+									<div><div class="legend-line" style="background-color: #78D19C; margin-left: 33px;"></div>bike path (all types)</div>
+									<div><div class="legend-dot" style="background-color: #1463d9; margin-left: 35px;"></div>subjective hot spots</div>
 							</div>
 
 							<!-- pop-up -->
@@ -297,14 +306,14 @@
 						<img src="graphics/veloeasyparkbox.jpg" class="img-fluid" alt="Parkbox">
 						<p class="img-source">Source: <a href="https://www.velo-easy.de">velo-easy.de</a></p>
 						<h5>Bicycle box</h5>
-						<p>There are lockable bicycle parking box, but there are only a few locations, yet. A parking box with 10 doors around. You can book your “Bicycle-hotel“ with </br>velo-easy app to pay 50 cent for 1 hour.</p>
+						<p>Yet the bicycle boxes are existing only in very few locations. With the help of velo-easy app you can book a place for 0,50 €/hour.</p>
 					</div>
 
 			    <div class="col-sm-6">
 						<img src="graphics/fahrradparkhaus.jpg" class="img-fluid" alt="Fahrradparkhaus">
 						<p class="img-source">Source: <a href="https://www.tagesspiegel.de/berlin/fahrradverkehr-park-and-bike-neues-fahrradparkhaus-in-bernau/8671698.html">taggespiegel.de</a></p>
 						<h5>Covered bicycle park</h5>
-						<p>In Bernau there is the first bicycle parking garage in the region.</p>
+						<p>Covered bicycle park in Bernau (nearby Berlin) - the first one in the region.</p>
 					</div>
 
 				</div>
@@ -337,8 +346,7 @@
 		</div>
 		<div class="container">
 			<img src="graphics/cycle-highways-map.png" class="img-fluid" alt="cycle highways map" />
-			<p class="img-source">Source: <a href="https://www.morgenpost.de/berlin/article212020323/Diese-acht-Strecken-sollen-Radfahrer-voranbringen.html">morgenpost.de</a></p>
-			<p>
+			<p class="img-source">Source: <a href="https://www.morgenpost.de/berlin/article212020323/Diese-acht-Strecken-sollen-Radfahrer-voranbringen.html">morgenpost.de</a>, 29.01.2018<br />
 				The numbers match the order of the feasibility analysis dates.
 			</p>
 		</div>
